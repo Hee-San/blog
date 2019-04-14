@@ -2,6 +2,8 @@ baseURL = "https://hee-san.github.io/blog/"
 languageCode = "en-us"
 title = "へーさんのブログ"
 
+publishDir = "docs"
+
 theme = "jeffprod"
 
 [permalinks]
