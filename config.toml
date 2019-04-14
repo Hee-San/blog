@@ -5,6 +5,7 @@ title = "へーさんのブログ"
 publishDir = "docs"
 
 theme = "jeffprod"
+googleAnalytics = "UA-114441596-3"
 
 [permalinks]
     post = "/:year/:filename"
