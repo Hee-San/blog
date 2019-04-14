@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Archives on My New Hugo Site</title>
-    <link>http://example.org/archives/</link>
-    <description>Recent content in Archives on My New Hugo Site</description>
+    <title>Archives on へーさんのブログ</title>
+    <link>https://hee-san.github.io/blog/archives/</link>
+    <description>Recent content in Archives on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-        <atom:link href="http://example.org/archives/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://hee-san.github.io/blog/archives/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
