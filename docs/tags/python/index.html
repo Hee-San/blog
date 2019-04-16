@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Archives</title>
+        <title>へーさんのブログ  | python</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -27,8 +27,8 @@ if (!doNotTrack) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
         
-        <link href="https://hee-san.github.io/blog/archives/index.xml" rel="alternate" type="application/rss+xml" title="へーさんのブログ" />
-        <link href="https://hee-san.github.io/blog/archives/index.xml" rel="feed" type="application/rss+xml" title="へーさんのブログ" />
+        <link href="https://hee-san.github.io/blog/tags/python/index.xml" rel="alternate" type="application/rss+xml" title="へーさんのブログ" />
+        <link href="https://hee-san.github.io/blog/tags/python/index.xml" rel="feed" type="application/rss+xml" title="へーさんのブログ" />
         
 
         
@@ -69,7 +69,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Archive Archives
+                        #python
                         
                     </h1>
                     
@@ -83,10 +83,39 @@ if (!doNotTrack) {
     
 
 
+
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/blog/2019/%E5%85%83%E5%8F%B7%E5%A4%89%E6%8F%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/">元号変換プログラム</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at April 16, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;1 min read
+                            </p>
+                            <p>年の西暦表記・元号表記を相互に変換するようなプログラムを作成します。
+テスト書いていますか？ いきなり元号と関係のない話なんですが。
+身の回りでテストコードをちゃんと書いている友人がいません。 悲しいです。書きましょう。
+僕は、テストには以下のようなメリットがあると思います。
+ 動作が保証されること サンプルとして、使い方が簡単にわかること  同期の友人は研究室へ入るこの機に、ぜひテストやドキュメントを書く習慣をつけてほしいです。
+この記事ではさらに踏み込んで、TDD（テスト駆動開発）を行います。
+これは、メインプログラムより先にテストコードを書いちゃう開発手法です。
+先に目標の動作を明記するので、開発する上で目標を見失うこともないです。
+他にもメリットがたくさんあるんですが、それはまたの機会に書こうと思います。
+開発環境 Pythonを使います。（今回の例では）簡潔なコードで済み、テストの用意が簡単だから選びました。
+初めのうちは、外部ライブラリ等は利用しない予定です。
+テストには、標準ライブラリのdoctestを使います。
+2020年は令和2年 何はともあれ、まずはテストを書きます。
+まずは「西暦を令和に変換できる」という仕様を満たしたいです。 「1年は元年とする」や「昭和・平成にも変換可能にする」等は後回しです。
+ 以下、執筆中...</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
 
             </div>
         </div>
@@ -133,7 +162,6 @@ if (!doNotTrack) {
 
     </div>
 </div>
-
 
 
     </div>

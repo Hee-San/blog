@@ -5,10 +5,19 @@
     <description>Recent content in Tags on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Apr 2019 10:06:23 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 16 Apr 2019 23:10:44 +0900</lastBuildDate>
     
         <atom:link href="https://hee-san.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>python</title>
+      <link>https://hee-san.github.io/blog/tags/python/</link>
+      <pubDate>Tue, 16 Apr 2019 23:10:44 +0900</pubDate>
+      
+      <guid>https://hee-san.github.io/blog/tags/python/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>matlab</title>

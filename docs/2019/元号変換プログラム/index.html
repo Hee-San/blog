@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Archives</title>
+        <title>へーさんのブログ  | 元号変換プログラム</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -26,9 +26,6 @@ if (!doNotTrack) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
-        
-        <link href="https://hee-san.github.io/blog/archives/index.xml" rel="alternate" type="application/rss+xml" title="へーさんのブログ" />
-        <link href="https://hee-san.github.io/blog/archives/index.xml" rel="feed" type="application/rss+xml" title="へーさんのブログ" />
         
 
         
@@ -69,7 +66,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Archive Archives
+                        元号変換プログラム
                         
                     </h1>
                     
@@ -82,16 +79,70 @@ if (!doNotTrack) {
     <div class="section">
     
 
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                
+
+<p>年の西暦表記・元号表記を相互に変換するようなプログラムを作成します。</p>
+
+<h2 id="テスト書いていますか">テスト書いていますか？</h2>
+
+<p>いきなり元号と関係のない話なんですが。</p>
+
+<p>身の回りでテストコードをちゃんと書いている友人がいません。
+悲しいです。書きましょう。</p>
+
+<p>僕は、テストには以下のようなメリットがあると思います。</p>
+
+<ul>
+<li>動作が保証されること</li>
+<li>サンプルとして、使い方が簡単にわかること</li>
+</ul>
+
+<p>同期の友人は研究室へ入るこの機に、ぜひテストやドキュメントを書く習慣をつけてほしいです。</p>
+
+<p>この記事ではさらに踏み込んで、<strong>TDD（テスト駆動開発）</strong>を行います。</p>
+
+<p>これは、メインプログラムより先にテストコードを書いちゃう開発手法です。</p>
+
+<p>先に目標の動作を明記するので、開発する上で目標を見失うこともないです。</p>
+
+<p>他にもメリットがたくさんあるんですが、それはまたの機会に書こうと思います。</p>
+
+<h2 id="開発環境">開発環境</h2>
+
+<p><strong>Python</strong>を使います。（今回の例では）簡潔なコードで済み、テストの用意が簡単だから選びました。</p>
+
+<p>初めのうちは、外部ライブラリ等は利用しない予定です。</p>
+
+<p>テストには、標準ライブラリの<strong>doctest</strong>を使います。</p>
+
+<h2 id="2020年は令和2年">2020年は令和2年</h2>
+
+<p>何はともあれ、まずはテストを書きます。</p>
+
+<p>まずは<strong>「西暦を令和に変換できる」</strong>という仕様を満たしたいです。
+「1年は元年とする」や「昭和・平成にも変換可能にする」等は後回しです。</p>
+
+<script src="https://gist.github.com/Hee-San/036de266e8e6b7f8163b8ad080f8b05f.js"></script>
+
+<p><em>以下、執筆中</em></p>
 
             </div>
         </div>
     </div>
     <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Share Buttons</h1>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Tags</h1>
@@ -122,6 +173,11 @@ if (!doNotTrack) {
     </div>
 </div>
     <br>
+                
+
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
@@ -133,7 +189,6 @@ if (!doNotTrack) {
 
     </div>
 </div>
-
 
 
     </div>
