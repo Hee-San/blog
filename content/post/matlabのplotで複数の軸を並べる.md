@@ -3,6 +3,7 @@ title: "Matlabのplotで複数の軸を並べる"
 date: 2019-04-16T10:06:23+09:00
 archives: "2019"
 tags: [matlab]
+twitterImage: /blog/img/matlab_axes.jpg
 ---
 
 某大学某学部某学科某コースでは、毎年多くの**matlabのplotに複数軸を配置できない難民**が発生します。

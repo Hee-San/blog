@@ -97,9 +97,11 @@ if (!doNotTrack) {
                                 <p class="title is-4"><a href="https://hee-san.github.io/blog/2019/matlab%E3%81%AEplot%E3%81%A7%E8%A4%87%E6%95%B0%E3%81%AE%E8%BB%B8%E3%82%92%E4%B8%A6%E3%81%B9%E3%82%8B/">Matlabのplotで複数の軸を並べる</a></p>
                                 <p class="subtitle is-size-6 has-text-grey-light">
                                     Published at April 16, 2019 &middot;
-                                    <i class="far fa-clock"></i>&nbsp;0 min read
+                                    <i class="far fa-clock"></i>&nbsp;1 min read
                                 </p>
-                                <p>...</p>
+                                <p>某大学某学部某学科某コースでは、毎年多くのmatlabのplotに複数軸を配置できない難民が発生します。 この記事は、そのような難民を救済することを目的に書かれています。
+ここで言う複数軸とは、以下のようなものを指します。 code とりあえずMatlabコードを張っておきます。 これを実行すれば、上記のグラフが作れると思います。
+X = 0:.1:2*pi Y = sin(X) % figure(図) を作成 figure('Name','グラフ例'); % axes(プロット領域) を作成 axes1 = axes('Position',[0.1, 0.25, 0.8, 0.65]); % Position [左下x座標, 左下y座標, 幅, 高さ] hold(axes1,'on'); % 「これから,この領域内で作業するよ」宣言 % stem(離散データ列のプロット) を作成 % stem()をplot(),scatter(),area()などに変更すると、グラフの種類が変わる stem(X,Y); % 軸の範囲 xlim(axes1,[0, 2*pi]); ylim(axes1,[-1.2, 1.2]); % grid(網目) をつける grid(axes1,'on'); % 残りの座標軸プロパティの設定 % 刻み幅は一定でなくても良い set(axes1, ... 領域1について、 'FontSize', 10, ... 文字サイズ10 ... 'XTick', [0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi, 3*pi/2, 2*pi], ....</p>
                             </div>
                         </div>
                     </article>

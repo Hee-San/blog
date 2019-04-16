@@ -13,3 +13,12 @@ googleAnalytics = "UA-114441596-3"
 [taxonomies]
     tag = "tags"
     archive = "archives"
+
+# Twitter card config
+# Enable with this.
+twitterCardEnabled = true
+# Don't include the @.
+# twitterCardSite =
+twitterCardDomain = "budougumi0617.github.io"
+# Don't include the @.
+twitterCardAuthor = "budougumi0617"
