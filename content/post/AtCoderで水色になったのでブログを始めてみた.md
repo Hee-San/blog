@@ -8,6 +8,7 @@ twitterImage: img/AtCoderScore_2019-04-13.png
 はじめまして。へーさんです。
 
 昨日のABC124で水色に昇格しました！！
+<!--more-->
 しばらく目標にしていたので、とても嬉しいです。
 
 ![コンテスト実績](/blog/img/AtCoderScore_2019-04-13.png)

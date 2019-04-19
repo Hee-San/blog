@@ -8,6 +8,7 @@ twitterImage: /blog/img/matlab_axes.jpg
 
 某大学某学部某学科某コースでは、毎年多くの**matlabのplotに複数軸を配置できない難民**が発生します。
 この記事は、そのような難民を救済することを目的に書かれています。
+<!--more-->
 
 ここで言う**複数軸**とは、以下のようなものを指します。
 ![複数軸を配置したplot](/blog/img/matlab_axes.jpg)
