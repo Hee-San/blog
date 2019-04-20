@@ -5,7 +5,7 @@
     <description>Recent content in 2019 on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Apr 2019 23:10:44 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 19 Apr 2019 11:10:44 +0900</lastBuildDate>
     
         <atom:link href="https://hee-san.github.io/blog/archives/2019/index.xml" rel="self" type="application/rss+xml" />
     
@@ -13,7 +13,7 @@
     <item>
       <title>元号変換プログラム</title>
       <link>https://hee-san.github.io/blog/2019/%E5%85%83%E5%8F%B7%E5%A4%89%E6%8F%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/</link>
-      <pubDate>Tue, 16 Apr 2019 23:10:44 +0900</pubDate>
+      <pubDate>Fri, 19 Apr 2019 11:10:44 +0900</pubDate>
       
       <guid>https://hee-san.github.io/blog/2019/%E5%85%83%E5%8F%B7%E5%A4%89%E6%8F%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/</guid>
       <description>&lt;p&gt;Python・TDDで、年の西暦表記・元号表記を相互に変換するようなプログラムを作成します。&lt;/p&gt;</description>
