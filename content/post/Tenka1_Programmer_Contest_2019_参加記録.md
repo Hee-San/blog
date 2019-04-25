@@ -15,7 +15,7 @@ Perf: 1283
 Rating: 1214(+8, highest!)
 ```
 
-![レート](/blog/img/crop_screen.png)
+![レート](/blog/img/AtCoder20190420.png
 
 結果はCDEF4問中、CのみACでした。Dも解きたかったのですが力及ばず。。。
 
