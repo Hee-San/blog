@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Tags</title>
+        <title>へーさんのブログ  | Tenka1 Programmer Contest 2019 参加記録</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -26,9 +26,6 @@ if (!doNotTrack) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
-        
-        <link href="https://hee-san.github.io/blog/tags/index.xml" rel="alternate" type="application/rss+xml" title="へーさんのブログ" />
-        <link href="https://hee-san.github.io/blog/tags/index.xml" rel="feed" type="application/rss+xml" title="へーさんのブログ" />
         
 
         
@@ -69,7 +66,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        #Tags
+                        Tenka1 Programmer Contest 2019 参加記録
                         
                     </h1>
                     
@@ -82,17 +79,101 @@ if (!doNotTrack) {
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                <p>昨日（2019/04/20）AtCoderで開催された、Tenka1 Programmer Contest 2019に参加しました。</p>
 
+<pre><code>2019/4/20 Tenka1 Programmer Contest 2019
+Rank: 833(rated)
+Perf: 1283
+Rating: 1214(+8, highest!)
+</code></pre>
+
+<p><img src="/blog/img/crop_screen.png" alt="レート" /></p>
+
+<p>結果はCDEF4問中、CのみACでした。Dも解きたかったのですが力及ばず。。。</p>
+
+<hr />
+
+<h3 id="c-stones">C - Stones</h3>
+
+<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c</a></p>
+
+<p>問題文はちゃんと読みましょう。</p>
+
+<p>はじめに、白→黒の変換のみ許されていると思い、<strong>WA</strong>。
+左から順に見ていき、はじめての黒以降、すべての白を黒に変更する戦略です。</p>
+
+<p>次に、黒→白の操作が可能ということに気づいたものの、あまり深く考えず、またしても<strong>WA</strong>。
+さっきの戦略を、逆方向にも実行。
+変更数の少ない方を採用。</p>
+
+<p>2WAになって、やっと冷静に。
+三度目の正直で<strong>AC</strong>しました。
+まじめに考えると、すぐに分かりました。
+解放は解説と同じです。</p>
+
+<hr />
+
+<h3 id="d-three-colors">D - Three Colors</h3>
+
+<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d</a></p>
+
+<p>一瞬、bit全探索を考えましたが明らかにTLEになるので却下。</p>
+
+<p>結論、解説の解法に近いところまで行ったのですが、解法に自信が持てず、間に合いませんでした。。</p>
+
+<p>さて、$R≧G≧B$ と仮定、$R$に塗る整数の個数を決定したとき、$G,B$の塗り分けの場合の数は簡単に求められます。</p>
+
+<p>最長辺$R$について、$R&lt;\frac{(R+G+B)}{2}$が、三角形$RGB$の存在の必要十分条件となります。つまり、$R$がこの条件を満たしていれば、$B,G$はどんな塗り方も許されます。</p>
+
+<p>全$N$個の整数のうち$N_R$個の整数を$R$に塗るとすると、残りの整数を$B,G$に塗り分ける方法は$2^{(N-N_R)}$通りとなります。</p>
+
+<p>ですのであとは、$R&lt;\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
+
+<p><br /></p>
+
+<p><strong>と、ここまで考えたのですが、間違えていました。</strong></p>
+
+<p>$R&lt;\frac{(R+G+B)}{2}$を満たしていても、$R≧G$を満たさない$G$の塗り方も存在します。つまり、$R$が最長辺であるという条件付けが、数式上でできていませんでした。</p>
+
+<p>また、$R=G$や$G=B$となる場合が重複して数えられるため、その分あとから引く必要があるのも億劫です。</p>
+
+<p><br /></p>
+
+<p><strong>解説の解答では、この問題をうまく解決しています。</strong></p>
+
+<p>上の方針では、<strong>三角形$RGB$が存在するような塗り分け方</strong>を数えていました。しかし、それは簡単でありませんでした。</p>
+
+<p>解説ではこれを踏まえてか、<strong>（すべての$RGB$塗り方の場合の数）$-$（三角形$RGB$が存在しない塗り方の場合の数）</strong>を計算しています。</p>
+
+<p>三角形$RGB$が存在しない必要十分条件は$R≧\frac{(R+G+B)}{2}$なので、数え上げも簡単です。</p>
+
+<p>ですのであとは、$R≧\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
+
+<p>このDPはナップサック問題のDPと同じような考えで良さそうです。</p>
+
+<p>$i$個から、和が$j$となるよう$R$に塗る整数を選ぶ場合の数$DP[i][j]$は、以下の2つの場合に分けられます。</p>
+
+<ol>
+<li>$i$番目の整数を<strong>選ぶ</strong>場合（$DP[i][j]$+=$DP[i-1][j-A_i]$）</li>
+<li>$i$番目の整数を<strong>選ばない</strong>場合（$DP[i][j]$+=$DP[i-1][j]$）</li>
+</ol>
             </div>
         </div>
     </div>
     <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Share Buttons</h1>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Tags</h1>
@@ -128,6 +209,27 @@ if (!doNotTrack) {
     </div>
 </div>
     <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/%E5%85%83%E5%8F%B7%E5%A4%89%E6%8F%9B%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0/">元号変換プログラム</a></h1>
+            <time class="has-text-grey-light is-size-7">19 April 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/atcoder%E3%81%A7%E6%B0%B4%E8%89%B2%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%A7%8B%E3%82%81%E3%81%A6%E3%81%BF%E3%81%9F/">AtCoderで水色になったのでブログを始めてみた</a></h1>
+            <time class="has-text-grey-light is-size-7">14 April 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
