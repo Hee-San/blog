@@ -11,3 +11,8 @@ html,body {
 .mysocial:hover { color: hsl(0, 0%, 71%) }
 
 .file{display: inline;}
+
+.content blockquote cite {
+    display: block;
+    text-align: right;
+}
