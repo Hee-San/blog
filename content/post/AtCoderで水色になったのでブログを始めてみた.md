@@ -2,7 +2,7 @@
 title: "AtCoderで水色になったのでブログを始めてみた"
 date: 2019-04-14T18:21:27+09:00
 archives: "2019"
-tags: [AtCoder]
+tags: [競技プログラミング, AtCoder]
 twitterImage: img/AtCoderScore_2019-04-13.png
 ---
 はじめまして。へーさんです。
