@@ -1,7 +1,7 @@
 ---
 title: "Matlabのplotで複数の軸を並べる"
 date: 2019-04-16T10:06:23+09:00
-archives: "2019"
+archives: "2019/04"
 tags: [matlab]
 twitterImage: /blog/img/matlab_axes.jpg
 ---

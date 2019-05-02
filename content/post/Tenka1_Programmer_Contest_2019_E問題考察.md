@@ -1,7 +1,7 @@
 ---
 title: "Tenka1 Programmer Contest 2019 E問題考察"
 date: 2019-05-02T10:32:18+09:00
-archives: "2019"
+archives: "2019/05"
 tags: [競技プログラミング, AtCoder]
 ---
 

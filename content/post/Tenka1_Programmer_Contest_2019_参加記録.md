@@ -1,7 +1,7 @@
 ---
 title: "Tenka1 Programmer Contest 2019 参加記録"
 date: 2019-04-21T09:54:51+09:00
-archives: "2019"
+archives: "2019/04"
 tags: [競技プログラミング, AtCoder]
 ---
 
