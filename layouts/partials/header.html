@@ -13,10 +13,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}" />
-        {{ if .RSSLink }}
-        <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
-        <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}" />
-        {{ end }}
+
+        {{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}
 
         <!-- fabicon -->
         <link rel="apple-touch-icon" sizes="57x57" href={{ "img/favicon/apple-icon-57x57.png" | absURL }}>
@@ -46,14 +44,14 @@
         <meta name="twitter:creator" content="{{ .Site.Social.writer_twitter_id }}">
         </meta>
         <meta name="twitter:title"
-            content="{{ if eq .URL "/" }}<title>{{ .Site.Title }}</title>{{ else }}<title>{{ .Title }}&nbsp;-&nbsp;{{ .Site.Title }}</title>{{ end }}">
+            content="{{ if eq .Permalink "/" }}<title>{{ .Site.Title }}</title>{{ else }}<title>{{ .Title }}&nbsp;-&nbsp;{{ .Site.Title }}</title>{{ end }}">
         </meta>
         <meta name="twitter:url" content="{{ .Permalink }}">
         </meta>
         <meta name="twitter:description"
             content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
         </meta>
-        {{ if eq .URL "/" }}
+        {{ if eq .Permalink "/" }}
         <meta name="twitter:image" content="{{ .Site.BaseURL }}img/mwlogoicon.png">
         </meta>
         {{ else }}
