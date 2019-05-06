@@ -1,11 +1,12 @@
 ---
-title: "AGC033 参加記録"
+title: "AGC033 A問題 参加記録"
 date: 2019-05-05T12:19:01+09:00
 archives: ["2019/05"]
 tags: [競技プログラミング, AtCoder]
 ---
 
 昨日（2019/05/04）、AtCoderで開催された[AtCoder Grand Contest 033](https://atcoder.jp/contests/agc033)に参加しました。
+問題量が多いため、各問題ごと別に記事を書こうと思います。
 <!--more-->
 ```
 2019/5/4 AtCoder Grand Contest 033
@@ -63,7 +64,3 @@ Cは半分くらいまでは考察できていました。
 ですのでチェックの数は高々$4HW$、つまり$O(HW)$に収まります。
 これは1秒以内で十分処理できる計算量です。
 
-
----
-
-WIP
