@@ -1,0 +1,21 @@
+<meta name="twitter:card" content="summary_large_image" />
+</meta>
+<meta name="twitter:site" content="{{ .Site.Social.writer_twitter_id }}">
+</meta>
+<meta name="twitter:creator" content="{{ .Site.Social.writer_twitter_id }}">
+</meta>
+<meta name="twitter:title"
+    content="{{ if eq .Permalink "/" }}<title>{{ .Site.Title }}</title>{{ else }}<title>{{ .Title }}&nbsp;-&nbsp;{{ .Site.Title }}</title>{{ end }}">
+</meta>
+<meta name="twitter:url" content="{{ .Permalink }}">
+</meta>
+<meta name="twitter:description"
+    content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+</meta>
+{{ if eq .Permalink "/" }}
+<meta name="twitter:image" content="{{ .Site.BaseURL }}img/mwlogoicon.png">
+</meta>
+{{ else }}
+<meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}">
+</meta>
+{{ end }}

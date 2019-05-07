@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Tags</title>
+        <title>へーさんのブログ  | AGC033 B問題 参加記録</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -27,7 +27,7 @@ if (!doNotTrack) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
 
-        /blog/tags/index.xml
+        
 
         <link rel="apple-touch-icon" sizes="57x57" href=https://hee-san.github.io/blog/img/favicon/apple-icon-57x57.png>
 <link rel="apple-touch-icon" sizes="60x60" href=https://hee-san.github.io/blog/img/favicon/apple-icon-60x60.png>
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>Tags&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>AGC033 B問題 参加記録&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/tags/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        #Tags
+                        AGC033 B問題 参加記録
                         
                     </h1>
                     
@@ -113,17 +113,76 @@ if (!doNotTrack) {
     <div class="section">
     
 
-
-
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
+                <p>一昨日（2019/05/04）、AtCoderで開催された<a href="https://atcoder.jp/contests/agc033">AtCoder Grand Contest 033</a>に参加しました。
+B問題の復習記事です。</p>
 
+<p><a href="https://hee-san.github.io/blog/2019/agc033_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">前回</a>はA問題について復習しました。
+今回復習するB問題は、嘘解法でACしてしまったため、特別に詳しく復習しようと思います。</p>
+
+<hr />
+
+<blockquote>
+<h3 id="b-lrud-game">B - LRUD Game</h3>
+
+<h5 id="問題文">問題文</h5>
+
+<p>縦$H$行、横$W$列のの長方形上のマス目があります。
+上から$i$行目、左から$j$列目のマスを$(i,j)$と表します。
+このマス目の上には一つの駒が置いてあり、最初はマス$(s_r,s_c)$に置いてあります。</p>
+
+<p>高橋君と青木君はそれぞれ長さ$N$の文字列を用意してゲームをすることにしました。
+高橋君は文字列$S$を、青木君は文字列$T$を用意し、$S$と$T$はともに<code>L</code>,<code>R</code>,<code>U</code>,<code>D</code>の4種類の文字からなります。</p>
+
+<p>ゲームは$N$回のステップからなります。
+$i$回目のステップは以下のように進行します。</p>
+
+<ul>
+<li>まず高橋君が操作を行う。  <br />
+この操作では、駒を$S_i$の方向に動かす、もしくは、駒を動かさないかのいずれかを行う。</li>
+<li>次に青木君が操作を行う。  <br />
+この操作では、駒を$T_i$の方向に動かす、もしくは、駒を動かさないかのいずれかを行う。</li>
+</ul>
+
+<p>ここで、駒を<code>L</code>,<code>R</code>,<code>U</code>,<code>D</code>の方向に動かすとは、駒がマス$(r,c)$にあったとき、
+それぞれマス$(r,c-1)$,$(r,c+1)$,$(r-1,c)$,$(r+1,c)$に動かす操作を指します。
+ただし、その座標に対応するマスが存在しない場合は、駒をマス目から取り除く操作を指すことにします。
+この操作が行われた場合、$N$回のステップが終わっていなくても、その時点でゲームは終了します。</p>
+
+<p>高橋君は$N$回のステップのいずれかのステップで駒をマス目から取り除きたいです。
+一方で、青木君は最終的に駒がマス目上に残ったまま、$N$回のステップを終えたいです。
+二人が最適に行動したとき、ゲームが終了した時点で駒がマス目上に残っているかどうかを判定してください。</p>
+
+<h5 id="制約">制約</h5>
+
+<ul>
+<li>$2 ≦ H,W ≦ 2 \times 10^5$</li>
+<li>$2 ≦ N ≦ 2 \times 10^5$</li>
+<li>$1 ≦ s_r ≦ H$</li>
+<li>$1 ≦ s_c ≦ W$</li>
+<li>$|S|=|T|=N$</li>
+<li>$S$と$T$は<code>L</code>,<code>R</code>,<code>U</code>,<code>D</code>の4種類の文字からなる。</li>
+<li>与えられるマス目には少なくとも1つ黒色のマスが存在する。</li>
+</ul>
+
+<p><cite><a href="https://atcoder.jp/contests/agc033/tasks/agc033_b">B - LRUD Game</a></cite></p>
+</blockquote>
             </div>
         </div>
     </div>
     <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Share Buttons</h1>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Tags</h1>
@@ -160,6 +219,36 @@ if (!doNotTrack) {
     </div>
 </div>
     <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 A問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_e%E5%95%8F%E9%A1%8C%E8%80%83%E5%AF%9F/">Tenka1 Programmer Contest 2019 E問題考察</a></h1>
+            <time class="has-text-grey-light is-size-7">2 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/abc125_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">ABC125 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">28 April 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">Tenka1 Programmer Contest 2019 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">21 April 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/atcoder%E3%81%A7%E6%B0%B4%E8%89%B2%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%A7%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%A7%8B%E3%82%81%E3%81%A6%E3%81%BF%E3%81%9F/">AtCoderで水色になったのでブログを始めてみた</a></h1>
+            <time class="has-text-grey-light is-size-7">14 April 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>

@@ -5,10 +5,20 @@
     <description>Recent content in 競技プログラミング on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2019 12:19:01 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 06 May 2019 19:26:55 +0900</lastBuildDate>
     
         <atom:link href="https://hee-san.github.io/blog/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AGC033 B問題 参加記録</title>
+      <link>https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</link>
+      <pubDate>Mon, 06 May 2019 19:26:55 +0900</pubDate>
+      
+      <guid>https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</guid>
+      <description>&lt;p&gt;一昨日（2019/05/04）、AtCoderで開催された&lt;a href=&#34;https://atcoder.jp/contests/agc033&#34;&gt;AtCoder Grand Contest 033&lt;/a&gt;に参加しました。
+B問題の復習記事です。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>AGC033 A問題 参加記録</title>
@@ -17,7 +27,7 @@
       
       <guid>https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</guid>
       <description>&lt;p&gt;昨日（2019/05/04）、AtCoderで開催された&lt;a href=&#34;https://atcoder.jp/contests/agc033&#34;&gt;AtCoder Grand Contest 033&lt;/a&gt;に参加しました。
-問題量が多いため、各問題ごと別に記事を書こうと思います。&lt;/p&gt;</description>
+A問題の復習記事です。&lt;/p&gt;</description>
     </item>
     
     <item>

@@ -16,49 +16,10 @@
 
         {{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}
 
-        <!-- fabicon -->
-        <link rel="apple-touch-icon" sizes="57x57" href={{ "img/favicon/apple-icon-57x57.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="60x60" href={{ "img/favicon/apple-icon-60x60.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="72x72" href={{ "img/favicon/apple-icon-72x72.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="76x76" href={{ "img/favicon/apple-icon-76x76.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="114x114" href={{ "img/favicon/apple-icon-114x114.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="120x120" href={{ "img/favicon/apple-icon-120x120.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="144x144" href={{ "img/favicon/apple-icon-144x144.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="152x152" href={{ "img/favicon/apple-icon-152x152.png" | absURL }}>
-        <link rel="apple-touch-icon" sizes="180x180" href={{ "img/favicon/apple-icon-180x180.png" | absURL }}>
-        <link rel="icon" type="image/png" sizes="192x192" href={{ "img/favicon/android-icon-192x192.png" | absURL }}>
-        <link rel="icon" type="image/png" sizes="32x32" href={{ "img/favicon/favicon-32x32.png" | absURL }}>
-        <link rel="icon" type="image/png" sizes="96x96" href={{ "img/favicon/favicon-96x96.png" | absURL }}>
-        <link rel="icon" type="image/png" sizes="16x16" href={{ "img/favicon/favicon-16x16.png" | absURL }}>
-        <link rel="manifest" href={{ "img/favicon/manifest.json" | absURL }}>
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-        <meta name="theme-color" content="#ffffff">
-        <!-- /fabicon -->
-
-        <!-- Twitter -->
-        <meta name="twitter:card" content="summary_large_image" />
-        </meta>
-        <meta name="twitter:site" content="{{ .Site.Social.writer_twitter_id }}">
-        </meta>
-        <meta name="twitter:creator" content="{{ .Site.Social.writer_twitter_id }}">
-        </meta>
-        <meta name="twitter:title"
-            content="{{ if eq .Permalink "/" }}<title>{{ .Site.Title }}</title>{{ else }}<title>{{ .Title }}&nbsp;-&nbsp;{{ .Site.Title }}</title>{{ end }}">
-        </meta>
-        <meta name="twitter:url" content="{{ .Permalink }}">
-        </meta>
-        <meta name="twitter:description"
-            content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-        </meta>
-        {{ if eq .Permalink "/" }}
-        <meta name="twitter:image" content="{{ .Site.BaseURL }}img/mwlogoicon.png">
-        </meta>
-        {{ else }}
-        <meta name="twitter:image" content="{{ .Site.BaseURL }}{{ .Params.eyecatch }}">
-        </meta>
-        {{ end }}
-        <!-- /Twitter -->
+        {{partial "head/fabicon.html" .}}
+        {{partial "head/Twitter.html" .}}
+        {{partial "head/mathjax.html" .}}
+        {{partial "head/code-prettify.html" .}}
     </head>
 
     <body>

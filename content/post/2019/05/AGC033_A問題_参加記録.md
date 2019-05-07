@@ -6,7 +6,7 @@ tags: [競技プログラミング, AtCoder]
 ---
 
 昨日（2019/05/04）、AtCoderで開催された[AtCoder Grand Contest 033](https://atcoder.jp/contests/agc033)に参加しました。
-問題量が多いため、各問題ごと別に記事を書こうと思います。
+A問題の復習記事です。
 <!--more-->
 ```
 2019/5/4 AtCoder Grand Contest 033
@@ -21,6 +21,8 @@ Rating: 1275(+61, highest!)
 
 Bは嘘解法だと気づかず堂々と提出、ACしてしまいました。
 Cは半分くらいまでは考察できていました。
+
+問題量が多いため、各問題ごと別に記事を書こうと思います。
 
 ---
 > ### A - Darker and Darker
