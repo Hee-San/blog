@@ -66,3 +66,75 @@ Cは半分くらいまでは考察できていました。
 ですのでチェックの数は高々$4HW$、つまり$O(HW)$に収まります。
 これは1秒以内で十分処理できる計算量です。
 
+
+{{< prettify lang-cpp >}}
+#include &ltalgorithm>
+#include &ltcmath>
+#include &ltiostream>
+#include &ltqueue>
+#include &ltstring>
+#include &lttuple>
+#include &ltvector>
+
+using namespace std;
+typedef long long int ll;
+typedef vector&ltint> vi;
+typedef vector&ltvi> vvi;
+typedef pair&ltint, int> v2;
+
+#define INF (1e9)
+
+int H, W;
+
+int main() {
+    cin >> H >> W;
+
+    vvi A(H, vi(W, INF));
+    string s;
+    queue<v2> q;
+
+    for (int i = 0; i < H; i++) {
+        cin >> s;
+        for (int j = 0; j < W; j++) {
+            if (s[j] == '#') {
+                A[i][j] = 0;
+                q.push(v2(i, j));
+            }
+        }
+    }
+
+    while (!q.empty()) {
+        v2 p = q.front();
+        q.pop();
+        int xx = p.second;
+        int yy = p.first;
+        if (xx > 0 && A[yy][xx - 1] == INF) {  // L
+            A[yy][xx - 1] = A[yy][xx] + 1;
+            q.push(v2(yy, xx - 1));
+        }
+        if (xx < W - 1 && A[yy][xx + 1] == INF) {  // R
+            A[yy][xx + 1] = A[yy][xx] + 1;
+            q.push(v2(yy, xx + 1));
+        }
+        if (yy > 0 && A[yy - 1][xx] == INF) {  // U
+            A[yy - 1][xx] = A[yy][xx] + 1;
+            q.push(v2(yy - 1, xx));
+        }
+        if (yy < H - 1 && A[yy + 1][xx] == INF) {  // D
+            A[yy + 1][xx] = A[yy][xx] + 1;
+            q.push(v2(yy + 1, xx));
+        }
+    }
+
+    int ans = 0;
+    for (int i = 0; i < H; i++) {
+        for (int j = 0; j < W; j++) {
+            ans = max(ans, A[i][j]);
+        }
+    }
+
+    cout << ans << endl;
+    return 0;
+}
+
+{{< /prettify >}}
