@@ -53,3 +53,226 @@ B問題の復習記事です。
 > <cite>[B - LRUD Game](https://atcoder.jp/contests/agc033/tasks/agc033_b)</cite>
 
 
+さてこの問題では、**縦の動きと横の動きは独立**して考えることができます。
+なぜなら、横方向の落ちる・落ちないに縦の移動は関係なく、また、縦の移動の選択によって横の移動に影響が出ることもないからです。
+
+ですのでこの問題は、2つの**1次元の問題**として見ることができます。
+
+縦・横どちらでも駒が落ちない場合、青木くんの勝ちです。
+逆に、縦・横どちらかで駒が落ちる場合、高橋くんの勝ちです。
+
+それでは、さらに問題を分解することは可能でしょうか。
+たとえば、**右方向と左方向は独立でしょうか**。
+
+このポイントで、私を含む多くの人が間違えてしまったようです。
+
+---
+### ACした嘘解法
+さきほどから言っている嘘解法とは、間違っている解法という意味で、競技プログラミング界隈で使われる用語です。
+とくに、正しくないのにテストケースはクリアでき、ACが出る解法について嘘解法という場面が多いと思います。
+
+さて、今回のB問題では、多くの嘘解法が提出され、ACしたと言われています。
+
+その嘘解法というのが、**右方向と左方向が独立**と仮定した解法です。
+
+たとえば、高橋くんが**右端に向かって駒を落とす戦略**で行動したとしましょう。
+このとき青木くんは、**可能なだけ左に向かって駒を動かせば**、右端から逃げることができます。
+（このとき青木くんは、行き過ぎて左端から駒を落とさないようにするとします。）
+
+このような攻防を考えたとき、シミュレーションするのは簡単です。
+また、4方向が独立と仮定しているので、このシミュレーションを4方向に行えば良さそうです。
+
+以下が、この嘘解法のプログラムです。
+今回はこのプログラムでACを取ってしまいました。
+
+{{< prettify lang-cpp >}}
+#include &ltalgorithm>
+#include &ltcmath>
+#include &ltiostream>
+#include &ltstring>
+#include &lttuple>
+#include &ltvector>
+
+using namespace std;
+typedef long long int ll;
+typedef vector&ltint> vi;
+typedef vector&ltvi> vvi;
+
+#define INF (1e9)
+
+int H, W, N, Sr, Sc;
+string S, T;
+
+int main() {
+    cin >> H >> W >> N;
+    cin >> Sr >> Sc;
+    cin >> S;
+    cin >> T;
+
+    Sc--;
+    Sr--;
+
+    int r, c;
+
+    // SU, TD
+    r = Sr;
+    for (int i = 0; i < N; i++) {
+        if (S[i] == 'U') r--;
+        if (r < 0) {
+            cout << "NO" << endl;
+            return 0;
+        }
+        if (T[i] == 'D') r = min(r + 1, H - 1);
+    }
+
+    // SD, TU
+    r = Sr;
+    for (int i = 0; i < N; i++) {
+        if (S[i] == 'D') r++;
+        if (r > H - 1) {
+            cout << "NO" << endl;
+            return 0;
+        }
+        if (T[i] == 'U') r = max(r - 1, 0);
+    }
+
+    // SL, TR
+    c = Sc;
+    for (int i = 0; i < N; i++) {
+        if (S[i] == 'L') c--;
+        if (c < 0) {
+            cout << "NO" << endl;
+            return 0;
+        }
+        if (T[i] == 'R') c = min(c + 1, W - 1);
+    }
+
+    // SR, TL
+    c = Sc;
+    for (int i = 0; i < N; i++) {
+        if (S[i] == 'R') c++;
+        if (c > W - 1) {
+            cout << "NO" << endl;
+            return 0;
+        }
+        if (T[i] == 'L') c = max(c - 1, 0);
+    }
+
+    cout << "YES" << endl;
+    return 0;
+}
+{{< /prettify >}}
+
+この解法が嘘解法である証拠として、次の例が見つかっています。
+
+> 3 3 4  \
+> 2 2  \
+> XLRR  \
+> LXXX  \
+> <cite>[Twitter:真紅色に染まるぷーん (@puNe) ](https://twitter.com/puNe/status/1124683211965997057?ref_src=twsrc%5Etfw)</cite>
+
+3×3の盤の真ん中に駒があります。
+つまり、右や左に2度移動した時点で駒が落ちてしまう状況です。
+
+さて、嘘解法のアルゴリズムで考えてみましょう。
+
+- 高橋くんが右に落とそうとするとき、青木くんは初手で左に移動しておけば勝つことができます。
+- 高橋くんが左に落とそうとするとき、青木くんは初手で移動しなければ勝つことができます。
+
+こうして、青木くんの必勝という判定をします。
+
+しかし実際には、青木くんは勝つことができません。
+
+- 青木くんが初手で左に移動したとき、高橋くんは左に駒を落とせます。
+- 青木くんが初手で移動しなかったとき、高橋くんは右に駒を落とせます。
+
+つまり、高橋くんの必勝なのです。
+
+このように、**左右の戦略は独立していない**ことがわかります。
+
+---
+### 正しい解法
+
+ここまで問題を観察することができていれば、左右の戦略が独立していなくとも、実装は簡単です。
+
+「このマスより右に行くと落とされる」、「このマスより左に行くと落とされる」というような、勝敗の境界があるはずです。
+はじめから、先のことをすべて考えて境界を見つけることは難しく、このような場合、最後の操作から前の操作へと順に戻って行き、境界を絞っていくことが効果的です。
+
+{{< prettify lang-cpp >}}
+#include &ltalgorithm>
+#include &ltcmath>
+#include &ltiostream>
+#include &ltstring>
+#include &lttuple>
+#include &ltvector>
+
+using namespace std;
+typedef long long int ll;
+typedef vector&ltint> vi;
+typedef vector&ltvi> vvi;
+
+#define INF (1e9)
+
+int H, W, N, Sr, Sc;
+string S, T;
+
+int main() {
+    cin >> H >> W >> N;
+    cin >> Sr >> Sc;
+    cin >> S;
+    cin >> T;
+
+    Sc--;
+    Sr--;
+
+    // 横   l < Sc < r で落ちない
+    int l = -1;
+    int r = W;
+
+    if (S[N - 1] == 'L') l++;
+    if (S[N - 1] == 'R') r--;
+    for (int i = N - 2; i >= 0; i--) {
+        if (r - l <= 1) break;
+        if (T[i] == 'R') l = max(l - 1, -1);
+        if (T[i] == 'L') r = min(r + 1, W);
+        if (S[i] == 'L') l++;
+        if (S[i] == 'R') r--;
+    }
+    if (Sc <= l || r <= Sc) {
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    // 縦   u < Sr < d で落ちない
+    int u = -1;
+    int d = H;
+
+    if (S[N - 1] == 'U') u++;
+    if (S[N - 1] == 'D') d--;
+    for (int i = N - 2; i >= 0; i--) {
+        if (d - u <= 1) break;
+        if (T[i] == 'D') u = max(u - 1, -1);
+        if (T[i] == 'U') d = min(d + 1, H);
+        if (S[i] == 'U') u++;
+        if (S[i] == 'D') d--;
+    }
+    if (Sr <= u || d <= Sr) {
+        cout << "NO" << endl;
+        return 0;
+    }
+
+    cout << "YES" << endl;
+    return 0;
+}
+
+{{< /prettify >}}
+
+---
+自分は本番中、一度、縦と横のみで独立させたプログラムを書いていました。
+そのまま書きあげていれば、正しい解法でACできていたはずです。
+
+しかし書いている途中で、4方向にも独立な気がしてきたため、とりあえず書いてみました。
+するとサンプルケースも通ったため提出してみると、ACとなりました。
+
+今思うと、現在のスコアだからできる、ペナルティありきの戦略でした。
+今後は一度のWAでもスコアの降下に関わってきそうなので、慎重に考えようと思います。
