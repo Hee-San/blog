@@ -1,5 +1,5 @@
 ---
-title: "Diverta 2019 Programming Contest 参加記録1"
+title: "Diverta 2019 Programming Contest 参加記録 1"
 date: 2019-05-12T09:55:11+09:00
 archives: ["2019/05"]
 tags: [競技プログラミング, AtCoder]
