@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>へーさんのブログ  | Diverta 2019 Programming Contest 参加記録 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-114441596-3', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+        <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
+
+        
+
+        <link rel="apple-touch-icon" sizes="57x57" href=https://hee-san.github.io/blog/img/favicon/apple-icon-57x57.png>
+<link rel="apple-touch-icon" sizes="60x60" href=https://hee-san.github.io/blog/img/favicon/apple-icon-60x60.png>
+<link rel="apple-touch-icon" sizes="72x72" href=https://hee-san.github.io/blog/img/favicon/apple-icon-72x72.png>
+<link rel="apple-touch-icon" sizes="76x76" href=https://hee-san.github.io/blog/img/favicon/apple-icon-76x76.png>
+<link rel="apple-touch-icon" sizes="114x114" href=https://hee-san.github.io/blog/img/favicon/apple-icon-114x114.png>
+<link rel="apple-touch-icon" sizes="120x120" href=https://hee-san.github.io/blog/img/favicon/apple-icon-120x120.png>
+<link rel="apple-touch-icon" sizes="144x144" href=https://hee-san.github.io/blog/img/favicon/apple-icon-144x144.png>
+<link rel="apple-touch-icon" sizes="152x152" href=https://hee-san.github.io/blog/img/favicon/apple-icon-152x152.png>
+<link rel="apple-touch-icon" sizes="180x180" href=https://hee-san.github.io/blog/img/favicon/apple-icon-180x180.png>
+<link rel="icon" type="image/png" sizes="192x192" href=https://hee-san.github.io/blog/img/favicon/android-icon-192x192.png>
+<link rel="icon" type="image/png" sizes="32x32" href=https://hee-san.github.io/blog/img/favicon/favicon-32x32.png>
+<link rel="icon" type="image/png" sizes="96x96" href=https://hee-san.github.io/blog/img/favicon/favicon-96x96.png>
+<link rel="icon" type="image/png" sizes="16x16" href=https://hee-san.github.io/blog/img/favicon/favicon-16x16.png>
+<link rel="manifest" href=https://hee-san.github.io/blog/img/favicon/manifest.json>
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+        <meta name="twitter:card" content="summary_large_image" />
+</meta>
+<meta name="twitter:site" content="">
+</meta>
+<meta name="twitter:creator" content="">
+</meta>
+<meta name="twitter:title"
+    content="<title>Diverta 2019 Programming Contest 参加記録 3&nbsp;-&nbsp;へーさんのブログ</title>">
+</meta>
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">
+</meta>
+<meta name="twitter:description"
+    content="">
+</meta>
+
+<meta name="twitter:image" content="https://hee-san.github.io/blog">
+</meta>
+
+
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['\\(','\\)']],
+            ignoreClass: "gist"
+        },
+        "HTML-CSS": {matchFontHeight: false}
+    });
+</script>
+<script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+
+    </head>
+
+    <body>
+
+        
+        <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://hee-san.github.io/blog">Home</a>
+            </div>
+        </nav>
+        
+
+        
+        <section class="hero is-info is-medium">
+            <div class="hero-body" style="background-image: url(https://hee-san.github.io/blog/img/bg-blog.jpg);">
+                <div class="container has-text-centered">
+                    <br>
+                    <h1 class="title is-size-1">
+                        
+                        Diverta 2019 Programming Contest 参加記録 3
+                        
+                    </h1>
+                    
+                </div>
+            </div>
+        </section>
+
+
+<div class="container">
+    <div class="section">
+    
+
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <p>先日（2019/05/11）、AtCoderで開催された<a href="https://atcoder.jp/contests/diverta2019">diverta 2019 Programming Contest</a>に参加しました。
+<strong>E問題</strong>の復習記事です。</p>
+
+<p><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">前回の記事</a>ではC問題を考察したので、次はD問題、と思いきや、今日はE問題を考察します。</p>
+
+<p>どうも今日は気分が落ち込みがちで。</p>
+
+<p>気分を上げるために、かねてから勉強したいと思っていた<strong>XOR</strong>の問題をやってみようと思います！
+スタアバックス珈琲を飲みながら。
+写真は期間限定プリンアラモードフラペチーノです。</p>
+
+<p><img src="/blog/img/starbucks.jpeg" style="width:50%;"></p>
+
+<p>元気だしていきましょう。</p>
+
+<hr />
+
+<h2 id="e-xor-partitioning">E - XOR Partitioning</h2>
+
+<blockquote>
+<h5 id="問題文">問題文</h5>
+
+<p>長さ$n$の数列$a$の美しさを$a_1 \oplus a_2 \oplus \cdots \oplus a_n$で定義します。
+ここで$\oplus$はビットごとの排他的論理和を表します。</p>
+
+<p>長さ$N$の数列$A$が与えられます。
+すぬけ君は$A$に$0$個以上の仕切りを入れて、いくつかの空でない連続する部分列に分割しようとしています。</p>
+
+<p>仕切りを入れる方法は$2^{N-1}$通りあります。
+それらのうち、分割された数列たちの美しさが全て等しくなるものの個数を$10^9 + 7$で割ったあまりを求めてください。</p>
+
+<h5 id="制約">制約</h5>
+
+<ul>
+<li>入力は全て整数</li>
+<li>$1 \leq N \leq 5 \times 10^5$</li>
+<li>$0 \leq A_i &lt; 2^{20}$
+<cite><a href="https://atcoder.jp/contests/diverta2019/tasks/diverta2019_e">E - XOR Partitioning</a> </cite></li>
+</ul>
+</blockquote>
+
+<p>さて、ついにXORの問題です！
+ブログを始めたときから、XOR問題については取り上げたいと思っていました。</p>
+
+<p>まずはXORの性質からおさらいしましょう。</p>
+
+<p><strong>XOR（排他的論理和）</strong>とは、論理演算子の一種です。
+その性質から、論理回路は別名<strong>不一致回路</strong>と呼ばれています。</p>
+
+<p>$$0 \oplus 0 = 0$$
+$$0 \oplus 1 = 1$$
+$$1 \oplus 0 = 1$$
+$$1 \oplus 1 = 0$$</p>
+
+<p>記号としては、問題文にある$\oplus$の他に、$\underline{\vee}$なども用います。
+私の経験では、前者は論理回路などで、後者は論理学などの講義で用いました。</p>
+
+<p>さて、XORはANDやORに比べて、おもしろい使い方がたくさんできます。
+その理由を一言で説明しましょう。
+なんと<strong>ビット列とXORは群を成す</strong>んです！
+しかも<strong>アーベル群</strong>！
+ANDやORは群を成しませんので、これはかなり重要な事実です。
+元気出てきました笑</p>
+
+<hr />
+
+<p>それでは、ビット列とXORが群を成すのか見てみましょう。</p>
+
+<h4 id="条件1-演算は元に対し閉じているか">条件1. 演算は元に対し閉じているか。</h4>
+
+<p>1ビット${0,1}$に対するXORは、先で見たとおり、$0$または$1$になります。
+これは、XORがブール演算子であることから自明です。
+また、任意長のビット列に対しても、XORは各ビットで独立に働くため、XORでビット列長は変化しません。</p>
+
+<p>以上のことから、<strong>任意長のビット列について、XORは閉じた演算をする</strong>ことが言えます。</p>
+
+<p>このように、1ビットに対するブール演算の結果は、任意長のビット列に対しても、各ビットで独立に働きます。
+よって以降の性質では、1ビットに対するXORの性質を調べるだけで十分です。</p>
+
+<h4 id="条件2-結合法則が成り立つか">条件2. 結合法則が成り立つか。</h4>
+
+<p>$$(0 \oplus 0) \oplus 0 = 0 \oplus (0 \oplus 0) = 0$$
+$$(0 \oplus 0) \oplus 1 = 0 \oplus (0 \oplus 1) = 1$$
+$$(0 \oplus 1) \oplus 0 = 0 \oplus (1 \oplus 0) = 1$$
+$$(0 \oplus 1) \oplus 1 = 0 \oplus (1 \oplus 1) = 0$$
+$$(1 \oplus 0) \oplus 0 = 1 \oplus (0 \oplus 0) = 1$$
+$$(1 \oplus 0) \oplus 1 = 1 \oplus (0 \oplus 1) = 0$$
+$$(1 \oplus 1) \oplus 0 = 1 \oplus (1 \oplus 0) = 0$$
+$$(1 \oplus 1) \oplus 1 = 1 \oplus (1 \oplus 1) = 1$$</p>
+
+<p>力技ですが、以上の結果から交換法則の成立が証明できました。</p>
+
+<p>またこの結果を見ると、<strong>XOR列の結果は、被演算子内の1の個数の偶奇</strong>を示していることがわかります。
+つまり、$A_0 \oplus A_1 \oplus &hellip; \oplus A_N$の結果は、数列$A$内に$1$が偶数個だった場合<strong>$0$</strong>、奇数個だった場合<strong>$1$</strong>となります。</p>
+
+<p>これは逆も成り立ちますし、ビット列については各桁で独立に計算されます。</p>
+
+<h4 id="条件3-単位元が存在するか">条件3. 単位元が存在するか。</h4>
+
+<p>はじめの4つ式のうち、以下の2つに注目してみましょう。</p>
+
+<p>$$0 \oplus 0 = 0$$
+$$1 \oplus 0 = 1$$</p>
+
+<p>元${0,1}$に$0$を作用させても、値が変化していません。
+ここから、<strong>$0$は単位元</strong>といえます。</p>
+
+<h4 id="条件4-逆元が存在するか">条件4. 逆元が存在するか。</h4>
+
+<p>群であるための、最後の条件です。</p>
+
+<p>こんどは以下の2つに注目してみましょう。</p>
+
+<p>$$0 \oplus 0 = 0$$
+$$1 \oplus 1 = 0$$</p>
+
+<p>ある元に、自身を作用させた場合、演算結果が単位元$0$となります。
+つまり<strong>逆元は自分自身</strong>といえます！
+$-0=0,-1=1$とも書けるでしょう。</p>
+
+<p><strong>以上の条件1~4により、ビット列とXORは群を成すことが証明できました。</strong></p>
+
+<p>さらに交換法則も証明できます。</p>
+
+<h4 id="条件5-交換法則が成り立つか">条件5. 交換法則が成り立つか。</h4>
+
+<p>1ビット${0,1}$に対するXORでは、先で見たとおり、$0\oplus1=1\oplus0=1$と交換法則が成立します。</p>
+
+<p><strong>よって以上の条件1~5により、ビット列とXORはアーベル群（可換群）を成すことが証明できました。</strong></p>
+
+<p>補足というか、メモと言うか。
+記事書きながら、<strong>乗法群andと加法群xorで環が成せそう</strong>なことに気が付きました。
+これを用いたAtCoder問題もありそう。
+探して挑戦してみたいと思います。
+ご存知の方は<a href="https://twitter.com/hee_san_">Twitter</a>リプライ等で教えてください。。</p>
+
+<hr />
+
+<p>さて、前置きが長くなってしまいました。
+フラペチーノも残り2cm高という具合です。
+本題の問題へと戻りましょう。</p>
+
+<p>書きそびれていましたが、実は今回、本番中もいい線まで行っていました。
+というのも、結果はテストケースも通せず未提出なのですが、<a href="https://img.atcoder.jp/diverta2019/editorial.pdf">公式解説PDF</a>と方針は同じだったんです。</p>
+
+<p>本番中の思考に沿って、振り返っていきたいと思います。</p>
+
+<p>本番中も、まずはXORがアーベル群であることを思い出し、確認していました。
+その中で<strong>自分自身が逆元</strong>という性質を確認したとき、次のことに気が付きました。</p>
+
+<p><strong>2分割された数列たちの美しさがすべて等しくなるとき、全XOR和は$0$</strong></p>
+
+<p>2つの部分数列の美しさを$b_0,b_1$とすると、$b_0=b_1$なので、$b_0 \oplus b_1=0$です。
+また、分割後の数列の数が偶数となるときは常に、全XOR和が$0$だとも言えます。</p>
+
+<p>さらに複数の部分数列に分割したとき、<strong>偶数個目の数列の終わりまでの累積XORは$0$</strong>になります。
+部分数列の美しさを$b_0$~$b_N$とすると、以下の様に書けます。
+$$b_0 \oplus b_1=0$$
+$$b_0 \oplus b_1 \oplus b_2 \oplus b_3=0$$
+$$b_0 \oplus b_1 \oplus &hellip; \oplus b_{2n+1}=0$$</p>
+
+<p>こういうわけで、まず、<strong>累積XORを取っておけば良い</strong>ことに気づきました。
+また、累積XORが$0$になるところがポイントだと気づきます。</p>
+
+<p>偶数個で$0$となるということはわかりました。
+では奇数個目はどうでしょう。
+奇数個目は一定値にはならず、問題によってまちまちです。
+ですが、1つの問題内では、<strong>すべての奇数個目の累積XORは等しくなります</strong>。
+そしてこのときの累積XORは、部分数列の美しさに一致します。</p>
+
+<p><strong>これで、この問題の性質は十分理解できたでしょう。</strong></p>
+
+<hr />
+
+<p>これまでになく長い記事になっていそうです。
+プラペチーノはもう無く、今はミスドのカフェオレが執筆のお供です。
+ポンデリングが売り切れていたので、ダブルチョコレートを買いました。</p>
+
+<p><strong>つぎは実装方法です。</strong>
+計算時間も気にしつつ、うまい方法を思いつく必要があります。
+自分はDP等を考えたものの、答えにたどり着くことはできませんでした。</p>
+
+<p>分割の個数の偶奇によって解き方が変わりそうです。
+すべてのXOR和が$0$であるか否かでも問題が変わります。
+DPで、分割の数ごとに見ていく気がしましたが、そうではなさそうです。
+なぜなら、分割数$i$の問題を解くために、分割数$0$~$i-1$までの結果は役に立ちそうになかったからです。</p>
+
+<p>それではおそらく、$A_0$~$A_i$を使って問題を解いてゆくパターンでしょう。
+このとき、<strong>DPの走査だけで$O(N)$</strong>となります。
+$N$の最大が$5\times10^5$と、ぎりぎりのラインです。
+各問題を解くには、ほとんど時間がありません。</p>
+
+<p>それでは、<strong>各問題を$O(1)$で解く方法があるのでしょうか</strong>。
+それとも、<strong>DPの大きさをもっと小さくできいるのでしょうか</strong>。
+本番中、自分はここまで想像できました。
+しかしいい方法が思いつかなかったのです。</p>
+
+<hr />
+
+<p>こうして思い返すと、いい考察ができていたように思います。
+制約や計算量をしっかりと考えられています。
+制約のこの数字は、ある意味ヒントだったと言えるでしょう。
+ですのでここに気づけたのは良かったと思います。
+ここでもうひと工夫必要なところが、やはり800点問題の難しさということでしょう。</p>
+
+<p>さて、ここからは<a href="https://img.atcoder.jp/diverta2019/editorial.pdf">公式解説</a>に沿って考えます。
+ここでも累積XOR和を$b_i$としています。
+$b_i=\oplus_{j=0}^i A_j$です。</p>
+
+<p>解説では、「$0,1,&hellip;,N+1$の番号がついた$N$個のマス」と書いていますが、これはおかしいです。
+「$0,1,&hellip;,N-1$の番号がついた$N$個のマス」ということで議論を進めます。
+解説内の$X$は、先の考察で考えた奇数個目の累積XORであり、部分数列の美しさでもあります。</p>
+
+<p><strong>まずは、$b_{N-1}\neq0$の場合を考えます。</strong></p>
+
+<p>WIP</p>
+            </div>
+        </div>
+    </div>
+    <div class="column is-3">
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Share Buttons</h1>
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+            data-show-count="false">Tweet</a>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Tags</h1>
+        <div class="tags">
+        
+            <span class="tag"><a href="https://hee-san.github.io/blog/tags/atcoder">atcoder</a></span>
+        
+            <span class="tag"><a href="https://hee-san.github.io/blog/tags/matlab">matlab</a></span>
+        
+            <span class="tag"><a href="https://hee-san.github.io/blog/tags/%E7%AB%B6%E6%8A%80%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0">競技プログラミング</a></span>
+        
+        </div>          
+    </div>
+</div><br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Recent posts</h1>
+        
+            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">Diverta 2019 Programming Contest 参加記録 3</a></h1>
+            <time class="has-text-grey-light is-size-7">15 May 2019</time>
+        
+            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">Diverta 2019 Programming Contest 参加記録 2</a></h1>
+            <time class="has-text-grey-light is-size-7">13 May 2019</time>
+        
+            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B21/">Diverta 2019 Programming Contest 参加記録 1</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+        
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_c%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 C問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+        
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 B問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
+        
+    </div>
+</div>
+    <br>
+                
+  
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">Diverta 2019 Programming Contest 参加記録 2</a></h1>
+            <time class="has-text-grey-light is-size-7">13 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B21/">Diverta 2019 Programming Contest 参加記録 1</a></h1>
+            <time class="has-text-grey-light is-size-7">12 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_c%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 C問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 B問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">6 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 A問題 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_e%E5%95%8F%E9%A1%8C%E8%80%83%E5%AF%9F/">Tenka1 Programmer Contest 2019 E問題考察</a></h1>
+            <time class="has-text-grey-light is-size-7">2 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/abc125_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">ABC125 参加記録</a></h1>
+            <time class="has-text-grey-light is-size-7">28 April 2019</time>
+      
+    </div>
+</div>
+
+    
+<br>
+        <div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Archives</h1>
+        
+        <a href="https://hee-san.github.io/blog/archives/2019/05">2019/05</a> (7)<br>
+        
+        <a href="https://hee-san.github.io/blog/archives/2019/04">2019/04</a> (4)<br>
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+    </div>
+</div>
+
+<footer class="footer has-background-grey-darker has-text-white">
+    <div class="content has-text-centered">
+        <p>
+            <span class="icon is-large"><a href="https://twitter.com/hee_san_" class="mysocial"><i
+                        class="fab fa-twitter fa-3x"></i></a></span>&nbsp;&nbsp;
+            
+            <span class="icon is-large"><a href="https://github.com/Hee-San" class="mysocial"><i
+                        class="fab fa-github fa-3x"></i></a></span>&nbsp;&nbsp;
+            <br><br>
+            Copyright &copy; へーさんのブログ 2019 - Theme by <a href="https://jeffprod.com"
+                class="mysocial">JeffProd.com</a>
+            - <a class="mysocial" href="https://hee-san.github.io/blog/about">About</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+
+</html>
