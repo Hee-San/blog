@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Tenka1 Programmer Contest 2019 参加記録</title>
+        <title>へーさんのブログ  | 2019/06</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -27,7 +27,7 @@ if (!doNotTrack) {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <link rel="stylesheet" href="https://hee-san.github.io/blog/css/blog.css" />
 
-        
+        /blog/archives/2019/06/index.xml
 
         <link rel="apple-touch-icon" sizes="57x57" href=https://hee-san.github.io/blog/img/favicon/apple-icon-57x57.png>
 <link rel="apple-touch-icon" sizes="60x60" href=https://hee-san.github.io/blog/img/favicon/apple-icon-60x60.png>
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>Tenka1 Programmer Contest 2019 参加記録&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>2019/06&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/archives/2019/06/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Tenka1 Programmer Contest 2019 参加記録
+                        Archive 2019/06
                         
                     </h1>
                     
@@ -113,101 +113,31 @@ if (!doNotTrack) {
     <div class="section">
     
 
+
 <div class="columns">
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                <p>昨日（2019/04/20）AtCoderで開催された、Tenka1 Programmer Contest 2019に参加しました。</p>
 
-<pre><code>2019/4/20 Tenka1 Programmer Contest 2019
-Rank: 833(rated)
-Perf: 1283
-Rating: 1214(+8, highest!)
-</code></pre>
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                            <p class="title is-4"><a href="/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">AGC034 C問題</a></p>
+                            <p class="subtitle is-size-6 has-text-grey-light">
+                                Published at June 5, 2019 &middot;
+                                <i class="far fa-clock"></i>&nbsp;6 min read
+                            </p>
+                            <p><p>先日（2019/06/02）、AtCoderで開催された<a href="https://atcoder.jp/contests/agc034">AtCoder Grand Contest 034</a>に参加しました。
+久々のブログ更新です。</p>...</p>
+                        </div>
+                    </div>
+                </article>
+                <br>
 
-<p><img src="/blog/img/AtCoder20190420.png" alt="レート" /></p>
-
-<p>結果はCDEF4問中、CのみACでした。Dも解きたかったのですが力及ばず。。。</p>
-
-<hr />
-
-<h3 id="c-stones">C - Stones</h3>
-
-<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c</a></p>
-
-<p>問題文はちゃんと読みましょう。</p>
-
-<p>はじめに、白→黒の変換のみ許されていると思い、<strong>WA</strong>。
-左から順に見ていき、はじめての黒以降、すべての白を黒に変更する戦略です。</p>
-
-<p>次に、黒→白の操作が可能ということに気づいたものの、あまり深く考えず、またしても<strong>WA</strong>。
-さっきの戦略を、逆方向にも実行。
-変更数の少ない方を採用。</p>
-
-<p>2WAになって、やっと冷静に。
-三度目の正直で<strong>AC</strong>しました。
-まじめに考えると、すぐに分かりました。
-解放は解説と同じです。</p>
-
-<hr />
-
-<h3 id="d-three-colors">D - Three Colors</h3>
-
-<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d</a></p>
-
-<p>一瞬、bit全探索を考えましたが明らかにTLEになるので却下。</p>
-
-<p>結論、解説の解法に近いところまで行ったのですが、解法に自信が持てず、間に合いませんでした。。</p>
-
-<p>さて、$R≧G≧B$ と仮定、$R$に塗る整数の個数を決定したとき、$G,B$の塗り分けの場合の数は簡単に求められます。</p>
-
-<p>最長辺$R$について、$R&lt;\frac{(R+G+B)}{2}$が、三角形$RGB$の存在の必要十分条件となります。つまり、$R$がこの条件を満たしていれば、$B,G$はどんな塗り方も許されます。</p>
-
-<p>全$N$個の整数のうち$N_R$個の整数を$R$に塗るとすると、残りの整数を$B,G$に塗り分ける方法は$2^{(N-N_R)}$通りとなります。</p>
-
-<p>ですのであとは、$R&lt;\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
-
-<p><br /></p>
-
-<p><strong>と、ここまで考えたのですが、間違えていました。</strong></p>
-
-<p>$R&lt;\frac{(R+G+B)}{2}$を満たしていても、$R≧G$を満たさない$G$の塗り方も存在します。つまり、$R$が最長辺であるという条件付けが、数式上でできていませんでした。</p>
-
-<p>また、$R=G$や$G=B$となる場合が重複して数えられるため、その分あとから引く必要があるのも億劫です。</p>
-
-<p><br /></p>
-
-<p><strong>解説の解答では、この問題をうまく解決しています。</strong></p>
-
-<p>上の方針では、<strong>三角形$RGB$が存在するような塗り分け方</strong>を数えていました。しかし、それは簡単でありませんでした。</p>
-
-<p>解説ではこれを踏まえてか、<strong>（すべての$RGB$塗り方の場合の数）$-$（三角形$RGB$が存在しない塗り方の場合の数）</strong>を計算しています。</p>
-
-<p>三角形$RGB$が存在しない必要十分条件は$R≧\frac{(R+G+B)}{2}$なので、数え上げも簡単です。</p>
-
-<p>ですのであとは、$R≧\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
-
-<p>このDPはナップサック問題のDPと同じような考えで良さそうです。</p>
-
-<p>$i$個から、和が$j$となるよう$R$に塗る整数を選ぶ場合の数$DP[i][j]$は、以下の2つの場合に分けられます。</p>
-
-<ol>
-<li>$i$番目の整数を<strong>選ぶ</strong>場合（$DP[i][j]$+=$DP[i-1][j-A_i]$）</li>
-<li>$i$番目の整数を<strong>選ばない</strong>場合（$DP[i][j]$+=$DP[i-1][j]$）</li>
-</ol>
             </div>
         </div>
     </div>
     <div class="column is-3">
-        <div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Share Buttons</h1>
-        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
-            data-show-count="false">Tweet</a>
-        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </div>
-</div>
-<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Tags</h1>
@@ -244,42 +174,6 @@ Rating: 1214(+8, highest!)
     </div>
 </div>
     <br>
-                
-  
-
-
-
-<div class="card">
-    <div class="card-content">
-        <h1 class="title is-5">Related posts</h1>
-      
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">AGC034 C問題</a></h1>
-            <time class="has-text-grey-light is-size-7">5 June 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">Diverta 2019 Programming Contest 参加記録 3</a></h1>
-            <time class="has-text-grey-light is-size-7">15 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">Diverta 2019 Programming Contest 参加記録 2</a></h1>
-            <time class="has-text-grey-light is-size-7">13 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B21/">Diverta 2019 Programming Contest 参加記録 1</a></h1>
-            <time class="has-text-grey-light is-size-7">12 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_c%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 C問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">9 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 B問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">6 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 A問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">5 May 2019</time>
-      
-    </div>
-</div>
-
-    
-<br>
         <div class="card">
     <div class="card-content">
         <h1 class="title is-5">Archives</h1>
@@ -295,6 +189,7 @@ Rating: 1214(+8, highest!)
 
     </div>
 </div>
+
 
 
     </div>

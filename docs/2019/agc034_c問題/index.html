@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Tenka1 Programmer Contest 2019 参加記録</title>
+        <title>へーさんのブログ  | AGC034 C問題</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>Tenka1 Programmer Contest 2019 参加記録&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>AGC034 C問題&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Tenka1 Programmer Contest 2019 参加記録
+                        AGC034 C問題
                         
                     </h1>
                     
@@ -117,84 +117,128 @@ if (!doNotTrack) {
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                <p>昨日（2019/04/20）AtCoderで開催された、Tenka1 Programmer Contest 2019に参加しました。</p>
+                <p>先日（2019/06/02）、AtCoderで開催された<a href="https://atcoder.jp/contests/agc034">AtCoder Grand Contest 034</a>に参加しました。
+久々のブログ更新です。</p>
 
-<pre><code>2019/4/20 Tenka1 Programmer Contest 2019
-Rank: 833(rated)
-Perf: 1283
-Rating: 1214(+8, highest!)
-</code></pre>
+<p>前回からかなり時間が開いてしまいました。</p>
 
-<p><img src="/blog/img/AtCoder20190420.png" alt="レート" /></p>
+<p>研究が忙しくなり、1限登校・終電帰宅が続いていたためです。
+現在も十分忙しいのですが、実験終了の待ち時間に余裕が出てきたため、久々に投稿してみようと思いました。</p>
 
-<p>結果はCDEF4問中、CのみACでした。Dも解きたかったのですが力及ばず。。。</p>
+<p><img src="/blog/img/AGC034.png" alt="レートグラフ" /></p>
 
-<hr />
+<p>忙しい間もコンテスト参加は欠かさなかったので、レートは少しずつ上ってきています。</p>
 
-<h3 id="c-stones">C - Stones</h3>
+<p>精進できていない（過去問を解くなどの努力ができていない）ため、伸び率は低いですが、次の青色が見えるようになってきたのはとても嬉しことです。</p>
 
-<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_c</a></p>
-
-<p>問題文はちゃんと読みましょう。</p>
-
-<p>はじめに、白→黒の変換のみ許されていると思い、<strong>WA</strong>。
-左から順に見ていき、はじめての黒以降、すべての白を黒に変更する戦略です。</p>
-
-<p>次に、黒→白の操作が可能ということに気づいたものの、あまり深く考えず、またしても<strong>WA</strong>。
-さっきの戦略を、逆方向にも実行。
-変更数の少ない方を採用。</p>
-
-<p>2WAになって、やっと冷静に。
-三度目の正直で<strong>AC</strong>しました。
-まじめに考えると、すぐに分かりました。
-解放は解説と同じです。</p>
+<p>少し書かないうちに文章力が落ちてしまった気がしますが、C問題の考察に入っていきたいと思います。</p>
 
 <hr />
 
-<h3 id="d-three-colors">D - Three Colors</h3>
+<blockquote>
+<h3 id="c-tests">C - Tests</h3>
 
-<p><a href="https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d">https://atcoder.jp/contests/tenka1-2019/tasks/tenka1_2019_d</a></p>
+<p>(800点)</p>
 
-<p>一瞬、bit全探索を考えましたが明らかにTLEになるので却下。</p>
+<h5 id="問題文">問題文</h5>
 
-<p>結論、解説の解法に近いところまで行ったのですが、解法に自信が持てず、間に合いませんでした。。</p>
+<p>高橋くんと青木くんは$1$から$N$までの番号がついたテストを受けようとしています。
+二人はこのテストの結果を使って勝負することにしました。
+具体的には、次のようにして勝敗を決めます。</p>
 
-<p>さて、$R≧G≧B$ と仮定、$R$に塗る整数の個数を決定したとき、$G,B$の塗り分けの場合の数は簡単に求められます。</p>
+<ul>
+<li>高橋くんが各テスト$i$について、その重要度$c_i$を決める。
+ただしこの値は$l_i$以上$u_i$以下の整数である必要がある。</li>
+<li>$\sum_{i=1}^{N} c_i \times$(高橋くんのテスト$i$の点数)$\ $を$A$、$\sum_{i=1}^{N} c_i \times$(青木くんのテスト$i$の点数)$\ $を$B$とする。
+$A \geq B$なら高橋くんの勝ち、$A&lt;B$なら青木くんの勝ち。</li>
+</ul>
 
-<p>最長辺$R$について、$R&lt;\frac{(R+G+B)}{2}$が、三角形$RGB$の存在の必要十分条件となります。つまり、$R$がこの条件を満たしていれば、$B,G$はどんな塗り方も許されます。</p>
+<p>高橋くんはエスパーなので、青木くんがテスト$i$で$b_i$点をとることがわかっています。</p>
 
-<p>全$N$個の整数のうち$N_R$個の整数を$R$に塗るとすると、残りの整数を$B,G$に塗り分ける方法は$2^{(N-N_R)}$通りとなります。</p>
+<p>高橋くんはこのままだとすべてのテストで$0$点をとってしまいますが、1時間勉強するごとに、好きなテストの点数を1だけ上げることができます。
+(1時間単位でしか勉強できません。)
+ただしテストはすべて$X$点満点なので、$X$より大きい点数にすることはできません。</p>
 
-<p>ですのであとは、$R&lt;\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
+<h5 id="制約">制約</h5>
 
-<p><br /></p>
+<ul>
+<li>$1 \leq N \leq 10^5$</li>
+<li>$1 \leq X \leq 10^5$</li>
+<li>$0 \leq b_i \leq X \  (i \leq i \leq N)$</li>
+<li>$1 \leq l_i \leq u_i \leq 10^5 \  (i \leq i \leq N)$</li>
+</ul>
 
-<p><strong>と、ここまで考えたのですが、間違えていました。</strong></p>
+<p><cite><a href="https://atcoder.jp/contests/agc034/tasks/agc034_c">AGC034 C - Tests</a></cite></p>
+</blockquote>
 
-<p>$R&lt;\frac{(R+G+B)}{2}$を満たしていても、$R≧G$を満たさない$G$の塗り方も存在します。つまり、$R$が最長辺であるという条件付けが、数式上でできていませんでした。</p>
+<p>まず、高橋君はほぼすべての問題に対し、満点をとるまで勉強するか、まったく勉強しないかのどちらかで良いと気づきました。
+正確には、<strong>中途半端に勉強するものは高々1つ</strong>、ということです。</p>
 
-<p>また、$R=G$や$G=B$となる場合が重複して数えられるため、その分あとから引く必要があるのも億劫です。</p>
+<p>次に、どうにかして、<strong>各テストに優先順位をつけたい</strong>とおもいます。
+勉強する優先順位がつけられれば、後は何点分勉強すればよいかという問題だけになるからです。</p>
 
-<p><br /></p>
+<p>優先順位は、そのテストを勉強した際、どれくらい勝負に寄与するかを考えると良さそうです。
+ノー勉の状態を基準に考えてみましょう。</p>
 
-<p><strong>解説の解答では、この問題をうまく解決しています。</strong></p>
+<p>まず、あるテスト$i$を満点まで勉強したときの寄与はどれくらいになるでしょうか。
+点数が青木くんに勝っているとき、重要度は最大の$u_i$にするのがお得です。
+このとき、$u_i\times(X-b_i)$のアドバンテージを得るでしょう。</p>
 
-<p>上の方針では、<strong>三角形$RGB$が存在するような塗り分け方</strong>を数えていました。しかし、それは簡単でありませんでした。</p>
+<p>今はノー勉の状態を基準に考えているので、基準値からの寄与を考えます。
+このとき、重要度は最小の$l_i$にするのが良いです。
+ノー勉の場合、$l_i\times b_i$のディスアドバンテージがある状態です。</p>
 
-<p>解説ではこれを踏まえてか、<strong>（すべての$RGB$塗り方の場合の数）$-$（三角形$RGB$が存在しない塗り方の場合の数）</strong>を計算しています。</p>
+<p>よって、<strong>あるテスト$i$を満点まで勉強したときの寄与$D_i$</strong>は、
+$$D_i=u_i\times(X-b_i)+l_i\times b_i$$
+と計算できます。</p>
 
-<p>三角形$RGB$が存在しない必要十分条件は$R≧\frac{(R+G+B)}{2}$なので、数え上げも簡単です。</p>
+<p>この寄与$D_i$が大きいものから、順に勉強してゆくのが良さそうです。
+すべてのテストについて$D_i$を計算し、降順にソートすれば扱いやすそうです。
+（$D_i$が等しいテストの比較はについては後述します。）</p>
 
-<p>ですのであとは、$R≧\frac{(R+G+B)}{2}$を満たすような$N_R$個の選び方が何通りあるかを求められればよいはずです。これはDPを使えば出せそうです。</p>
+<p>ここまでの計算量は、$N$個のテストについて$O(1)$で$D_i$を計算、$O(N\log N)$でソートするので、$O(N+N\log N)$、つまり$O(N\log N)$です。</p>
 
-<p>このDPはナップサック問題のDPと同じような考えで良さそうです。</p>
+<hr />
 
-<p>$i$個から、和が$j$となるよう$R$に塗る整数を選ぶ場合の数$DP[i][j]$は、以下の2つの場合に分けられます。</p>
+<p>それでは、この寄与$D_i$の降順に、何点分のテスト勉強をすれば良いのでしょう。
+僕はこの部分に悩まされ、問題Cを解くことができませんでした。</p>
 
-<ol>
-<li>$i$番目の整数を<strong>選ぶ</strong>場合（$DP[i][j]$+=$DP[i-1][j-A_i]$）</li>
-<li>$i$番目の整数を<strong>選ばない</strong>場合（$DP[i][j]$+=$DP[i-1][j]$）</li>
-</ol>
+<p>模範解答では、<strong>二分探索</strong>を用います。</p>
+
+<p>簡単な話でした。
+$k$点分勉強するとき、$k$が増えると$D_i$の和も増えてゆきます。
+そして、寄与の和が$\sum_{i=1}^{N} l_i b_i$を超えるような最小の$k$が答えです。
+これは線形計画問題で、直接答えを求めることは難しいですが、ある$k$における寄与の和は直接出せそうなので、二分探索が良いです。</p>
+
+<p>（ある$k$における結果が漸化式のように表されるときには、動的計画法などを用います。また、重要度$c_i$が$u_i$または$l_i$と極値を取ることは、線型計画問題の性質からも言えます。）</p>
+
+<p>さて、<strong>ある$k$を決めて、$k$点分勉強する</strong>としましょう。
+このとき、青木くんに勝てるか否かが判断できれば、$k$について二分探索を実行できます。</p>
+
+<p>するとまずは、<strong>寄与$D_i$の降順に並べたテストのうち、前から$\lfloor \frac{k}{X} \rfloor$個は満点まで勉強すれば良い</strong>とわかります。
+そして残りの$k\%X$点分を、残りのどれか1つのテストについて勉強します。</p>
+
+<p>ここで注意が必要です。
+残りの$k\%X$点分勉強するテストは、寄与$D_i$降順テストの$\lfloor \frac{k}{X} \rfloor+1$個目とは限りません。
+寄与$D_i$は、あるテスト$i$を満点まで勉強したという仮定での結果です。
+中途半端に勉強するテストの寄与は$D_i$ではありませんし、テストごとの大小関係も変わってきます。</p>
+
+<p><strong>最後にどのテストを選ぶかは、残りのテストについて全探索する必要があります。</strong>
+あるテスト$i$を$k\%X$点だけ勉強するとき、$k\%X &lt; b_i$ならその寄与は
+$$l_i\times(k\%X)$$
+となります。
+$k\%X \geq b_i$ならその寄与は
+$$u_i\times((k\%X)-b_i)+l_i\times b_i$$
+となります。
+この寄与が一番大きかったテストについて、勉強すれば最善です。</p>
+
+<p>こうして、$k$点分勉強したときの寄与がすべて計算できました。
+その<strong>合計が$\sum_{i=1}^{N} l_i b_i$を超える最小の$k$を二分探索で探せば、答えの$k$が見つかります。</strong></p>
+
+<p>$k$を決めたときの寄与は、計算量$O(N)$で計算できます。
+また、$k$の範囲は$0$から$NX$の間なので、二分探索の計算量は$O(N\log NX)$となります。</p>
+
+<p>前半のソートと合わせても、この解法の計算量は$O(N\log NX)$となります。</p>
             </div>
         </div>
     </div>
@@ -254,9 +298,6 @@ Rating: 1214(+8, highest!)
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://hee-san.github.io/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">AGC034 C問題</a></h1>
-            <time class="has-text-grey-light is-size-7">5 June 2019</time>
-      
             <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">Diverta 2019 Programming Contest 参加記録 3</a></h1>
             <time class="has-text-grey-light is-size-7">15 May 2019</time>
       
@@ -274,6 +315,9 @@ Rating: 1214(+8, highest!)
       
             <h1><a href="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 A問題 参加記録</a></h1>
             <time class="has-text-grey-light is-size-7">5 May 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/tenka1_programmer_contest_2019_e%E5%95%8F%E9%A1%8C%E8%80%83%E5%AF%9F/">Tenka1 Programmer Contest 2019 E問題考察</a></h1>
+            <time class="has-text-grey-light is-size-7">2 May 2019</time>
       
     </div>
 </div>
