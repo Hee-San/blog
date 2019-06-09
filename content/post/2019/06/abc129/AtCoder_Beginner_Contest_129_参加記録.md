@@ -9,7 +9,7 @@ tags: [競技プログラミング, AtCoder]
 
 <!--more-->
 
-![レートグラフ](ratingGraph.png)
+![レートグラフ](https://hee-san.github.io/blog/post/2019/06/abc129/ratingGraph.png)
 
 Rating+3です。
 Eは解けておきたかった。。
