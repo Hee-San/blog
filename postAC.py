@@ -168,6 +168,8 @@ for problemURL in links:
     strR = strR.replace('\n', '\n> ')
     txt += strR
 
+    txt += "> <cite> [" + Title.text + "](" + problemURL + ")</cite>\n"
+
     txt += "\n"
     txt += "\n"
     txt += "\n"
