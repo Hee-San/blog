@@ -153,6 +153,8 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$1 \leq P,Q,R \leq 100$</li>
 <li>入力は全て整数である</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_a">ABC129 A - Airplane</a></cite></p>
 </blockquote>
 
 <p>自分は<code>min({P+Q, Q+R, R+P})</code>で通しました。
@@ -223,8 +225,6 @@ python提出によるTLEで苦しんでいる人が多いようですが、ど�
 
 <p>さまざまなプログラミング言語の紹介記事も書いてみたいです。</p>
 
-<h2 id="以下-wip"><strong>以下、WIP</strong></h2>
-
 <hr />
 
 <blockquote>
@@ -248,12 +248,84 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$1 \leq W_i \leq 100$</li>
 <li>入力は全て整数である</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_b">ABC129 B - Balance</a></cite></p>
 </blockquote>
 
 <p>1列に並んだ重りの列に、仕切りを1箇所入れて、左右のグループに分けるイメージをしました。
-仕切りをどこに入れるか、全探索です。</p>
+仕切りを入れる方法は$N-1$通りあり、どこに入れるか全探索です。</p>
 
-<hr />
+<p>それでは、$N-1$通りそれぞれで、$S_1$と$S_2$はどのように計算すると良いでしょうか。</p>
+
+<p>まずは<a href="https://img.atcoder.jp/abc129/editorial.pdf">公式解説</a>で言う&rdquo;愚直な方法&rdquo;から考えてみます。
+この方法では、$N-1$通りそれぞれでfor文を回し、$S_1$と$S_2$を計算します。
+2つのfor文は、合計で$N$個のループです。
+これを$N-1$回試すので、計算量は$O(N^2)$です。
+つまり、Nが2倍になれば計算時間はだいたい4倍、Nが100倍になれば計算時間はだいたい1万倍になるという意味です。
+pythonなどのsum()を使ったとしても、内部では同じようなループが走るので、計算量は$O(N^2)$のままです。
+今回の$N$は最大100と十分小さいので、$O(N^2)$でも実行回数はせいぜい$10^4$ほど、問題ありません。</p>
+
+<p>計算量については、以下のような目安があります。</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">実行回数</th>
+<th align="right">コンパイラ言語 (C++, java, C#, PyPy,&hellip;)</th>
+<th align="center">インタプリタ言語 (Python, Ruby,&hellip;)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">$10^5$</td>
+<td align="right"></td>
+<td align="center">余裕を持って間に合う</td>
+</tr>
+
+<tr>
+<td align="center">$10^6$</td>
+<td align="right">余裕を持って間に合う</td>
+<td align="center">おそらく間に合う</td>
+</tr>
+
+<tr>
+<td align="center">$10^7$</td>
+<td align="right">おそらく間に合う</td>
+<td align="center">ほぼ無理</td>
+</tr>
+
+<tr>
+<td align="center">$10^8$</td>
+<td align="right">ほぼ無理</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+
+<p>これは1秒あたりの話ですが、2秒や5秒でも、桁が変わることはほぼありません。
+また、定数倍の高速化もあまり意味がないと思っていいです。
+（競技プログラミングに限った話です。)(PythonはC++に比べ2桁遅いとも言われます。）
+競技プログラミングでは、「おそらく間に合う」は間に合わないと思っていていいでしょう。
+「余裕を持って間に合う」ものが想定解であり、それより遅いアルゴリズムではTLEになるよう、テストケースが作られている場合が多いです。</p>
+
+<p>次に<a href="https://img.atcoder.jp/abc129/editorial.pdf">公式解説</a>にある$O(N)$の解を考えてみます。
+この方法では、$N-1$通りそれぞれでfor文を回す必要はありません。</p>
+
+<p>まず、あらかじめ、重さの総和を出しておきます。
+これは$O(N)$です。
+これがわかっていると、片方のグループの和だけ計算すれば、もう片方の和は$O(1)$で計算できます。</p>
+
+<p>つぎに、仕切りを左から順に動かし、左側のグループの和を求めます。
+つまり、0~i番目の重さの和を順に計算します。
+このとき、毎回forループを回す必要はありません。
+「0~i番目の重さの和」は「0~(i-1)番目の重さの和」に「i番目の重さ」を足すだけで良いので、前の結果を覚えておけば、$O(1)$でも止まります。</p>
+
+<p>仕切りを動かす回数は$O(N)$なので、全体の計算量は$0(N)$となりました。</p>
+
+<h2 id="wip"><strong>WIP</strong></h2>
+
+<h2 id="これは累積和や動的計画法-dp-の基礎とも言えます">これは累積和や動的計画法（DP）の基礎とも言えます。</h2>
 
 <blockquote>
 <h2 id="c-typical-stairs">C - Typical Stairs</h2>
@@ -278,6 +350,8 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$0 \leqq M \leqq N-1$</li>
 <li>$1 \leqq a_1 &lt; a_2  &lt; $ $&hellip;$ $ &lt; a_M \leqq N-1$</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_c">ABC129 C - Tests</a></cite></p>
 </blockquote>
 
 <hr />
@@ -309,6 +383,8 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$S_i$ は <code>#</code> と <code>.</code> のみからなる長さ $W$ の文字列</li>
 <li>$S_i$ ($1 ≤ i ≤ H$) のうちいずれかに <code>.</code> は最低 $1$ つ存在する</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_d">ABC129 D - Lamp</a></cite></p>
 </blockquote>
 
 <p>縦横の2方向で独立に解きましたが、計算量圧縮のためちょっと強引な方法に。
@@ -346,6 +422,8 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$L$は二進数表記で与えられ、先頭文字は必ず $1$ である</li>
 <li>$1 \leq L &lt; 2^{100,001}$</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_e">ABC129 E - Sum Equals Xor</a></cite></p>
 </blockquote>
 
 <p>桁DP、いままでやったことがなく苦戦しました。
@@ -377,6 +455,8 @@ Time Limit: 3 sec / Memory Limit: 1024 MB</p>
 <li>$2 \leq M \leq 10^9$</li>
 <li>等差数列の要素は全て $10^{18}$ 未満</li>
 </ul>
+
+<p><cite><a href="https://atcoder.jp/contests/abc129/tasks/abc129_f">ABC129 F - Takahashi&rsquo;s Basics in Education and Learning</a></cite></p>
 </blockquote>
 
 <p>いままで600点以上の問題は、解説を見たこともほとんどありません。
