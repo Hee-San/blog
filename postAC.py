@@ -10,10 +10,10 @@ from selenium.webdriver.chrome.options import Options
 from PIL import Image
 
 contestName = sys.argv[1]
-print("AtCoder " + contestName)
+print("AtCoder " + contestName.upper())
 
 # コンテストサイト スクレイピング
-url = "https://atcoder.jp/contests/" + contestName
+url = "https://atcoder.jp/contests/" + contestName.lower()
 instance = requests.get(url)
 soup = BeautifulSoup(instance.text, 'lxml')
 # コンテスト正式名
@@ -31,7 +31,7 @@ contestDateTime = dt.strptime(contestDateTimeStr, '%Y-%m-%d %H:%M:%S%z')
 today = datetime.date.today()
 filePass = "post/" + \
     str(today.year) + "/" + str(today.month).zfill(2) + \
-    "/" + contestName
+    "/" + contestName.lower()
 fileName = contestFullName.replace(' ', '_') + "_参加記録.md"
 
 os.system("hugo new " + filePass + "/" + fileName)
@@ -168,7 +168,9 @@ for problemURL in links:
     strR = strR.replace('\n', '\n> ')
     txt += strR
 
-    txt += "> <cite> [" + Title.text + "](" + problemURL + ")</cite>\n"
+    txt += "> <cite> [" + \
+        contestName.upper() + " " + Title.text + \
+        "](" + problemURL + ")</cite>\n"
 
     txt += "\n"
     txt += "\n"
