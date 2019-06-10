@@ -191,10 +191,13 @@ int maxB = min(b); // コンパイルエラー
 
 <p>また、その他のコンテナクラスから<code>initializer_list</code>クラスにキャストする手段も用意されていません。
 （<code>initializer_list</code>クラスのiteratorはconst。<code>.push_back</code>なども不可。）
-ですので、コンテナクラスの最小・最大要素を取るには、素直に<code>max_element</code>などを使ったほうが良いでしょう。</p>
+ですので、コンテナクラスの最小・最大要素を取るには、素直にforを書くか、<code>max_element</code>などを使ったほうが良いでしょう。</p>
 
-<pre><code class="language-cpp">vector&lt;int&gt; a = {1, 2, 3};
-int maxA = *max_element(v.begin(), v.end()); // イテレータが帰ってくるので、*で値に変換
+<pre><code class="language-cpp">vector&lt;int&gt; v = {1, 2, 3};
+int maxV = 0;
+for(int a : v) maxV = max(maxV, a);
+// もしくは
+int maxV = *max_element(v.begin(), v.end()); // イテレータが帰ってくるので、*で値に変換
 </code></pre>
 
 <p>（<code>initializer_list</code>に対して<code>max_element</code>は使用可能です。<code>begin</code>,<code>end</code>,<code>size</code>などのメンバ関数は持っています。）</p>
