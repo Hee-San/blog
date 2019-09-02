@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Matlabのplotで複数の軸を並べる</title>
+        <title>へーさんのブログ  | 記録に残る形でアウトプットしよう</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>Matlabのplotで複数の軸を並べる&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>記録に残る形でアウトプットしよう&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/matlab%E3%81%AEplot%E3%81%A7%E8%A4%87%E6%95%B0%E3%81%AE%E8%BB%B8%E3%82%92%E4%B8%A6%E3%81%B9%E3%82%8B/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/%E8%A8%98%E9%8C%B2%E3%81%AB%E6%AE%8B%E3%82%8B%E5%BD%A2%E3%81%A7%E3%82%A2%E3%82%A6%E3%83%88%E3%83%97%E3%83%83%E3%83%88%E3%81%97%E3%82%88%E3%81%86/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Matlabのplotで複数の軸を並べる
+                        記録に残る形でアウトプットしよう
                         
                     </h1>
                     
@@ -117,99 +117,36 @@ if (!doNotTrack) {
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                <p>某大学某学部某学科某コースでは、毎年多くの<strong>matlabのplotに複数軸を配置できない難民</strong>が発生します。
-この記事は、そのような難民を救済することを目的に書かれています。</p>
+                <p>おとといに「頑張ろうと思った話」をポストしてから、次の記事を書かないままもう9/3になってしまいました。反省。</p>
 
-<p>ここで言う<strong>複数軸</strong>とは、以下のようなものを指します。
-<img src="/blog/img/matlab_axes.jpg" alt="複数軸を配置したplot" /></p>
+<p>まだ9/2の夜25時就寝前で、9月に入ってまだ2日という感じなんですが、ブログ更新に時間が空いてしまったことを悔しいと感じています。</p>
 
-<h2 id="code">code</h2>
+<p>この2日間、全く何もしていなかったというわけでもなく、個人的には濃い時間でした。</p>
 
-<p>とりあえずMatlabコードを張っておきます。
-これを実行すれば、上記のグラフが作れると思います。</p>
+<p>ただアウトプットを忘れていた。ツイートで満足していた。</p>
 
-<pre class="prettyprint lang-matlab linenums">
-X = 0:.1:2*pi
-Y = sin(X)
+<p>前の記事で、&rdquo;ブログももっと、活用していこう。&rdquo;と書いたことはもう忘れていて、自分の覚悟は何だったんだと感じます。</p>
 
-% figure(図) を作成
-figure('Name','グラフ例');
+<p>僕はいつも、目的意識を持ったとき、こうしようといろんな計画を立てます。
+しかし三日坊主になることが多い。
+ブログなんて一日坊主になっていました。</p>
 
-% axes(プロット領域) を作成
-axes1 = axes('Position',[0.1, 0.25, 0.8, 0.65]);  % Position [左下x座標, 左下y座標, 幅, 高さ]
-hold(axes1,'on');  % 「これから,この領域内で作業するよ」宣言
+<p>これはよくある話だとは思うし、全くやらないよりマシだとも思います。
+それでも今回は、継続にこだわりたい。</p>
 
-% stem(離散データ列のプロット) を作成
-% stem()をplot(),scatter(),area()などに変更すると、グラフの種類が変わる
-stem(X,Y);
+<p>毎回の記事をこんなに長く書かなくてもいいから、できるだけポストしよう。
+間が空いてしまってもいいから、そのときはまた反省しよう。</p>
 
-% 軸の範囲
-xlim(axes1,[0, 2*pi]);
-ylim(axes1,[-1.2, 1.2]);
+<p>そんな意気込みで書いていきます。</p>
 
-% grid(網目) をつける
-grid(axes1,'on');
+<hr />
 
-% 残りの座標軸プロパティの設定
-% 刻み幅は一定でなくても良い
-set(axes1, ... 領域1について、
-    'FontSize', 10, ... 文字サイズ10
-    ...
-    'XTick', [0, pi/6, pi/4, pi/3, pi/2, 2*pi/3, 3*pi/4, 5*pi/6, pi, 3*pi/2, 2*pi], ... x方向の刻み
-    'YTick', [-1, -0.5, 0, 0.5, sqrt(2)/2, sqrt(3)/2, 1], ... y方向の刻み
-    ...
-    'TickLabelInterpreter','latex', ... 目盛りテキストをLaTex記法で数式などを綺麗に書ける
-    'XTickLabel', ... x軸の目Z盛りテキスト
-        {'0', '$$\frac{\pi}{6}$$', '$$\frac{\pi}{4}$$',' $$\frac{\pi}{3}$$', '$$\frac{\pi}{2}$$', '$$\frac{2\pi}{3}$$', ...
-        '$$\frac{3\pi}{4}$$', '$$\frac{5\pi}{6}$$', '$$\pi$$', '$$\frac{3\pi}{2}$$',' $$2\pi$$'}, ...
-    'YTickLabel', ... y軸の目盛りテキスト
-        {'-1','-0.5','0','0.5','$$\sqrt{2}/2$$','$$\sqrt{3}/2$$','1'} ...
-    );
-xlabel('位相(rad)');
-ylabel('正弦波');
-% axes(プロット領域) を作成
-% 領域の高さを0とすることで、横軸だけを作成できる
-axes2 = axes('Position',[0.1, 0.1, 0.8, 0]);  % Position [左下x座標, 左下y座標, 幅, 高さ]
-hold(axes2,'on');  % 「これから,この領域内で作業するよ」宣言
-xlim(axes2,[0, 360]); % 軸の範囲
-% 残りの座標軸プロパティの設定
-set(axes2, ... 領域1について、
-    'FontSize', 10, ... 文字サイズ10
-    ...
-    'XTick', 0:60:360, ... x方向の刻み
-    ...
-    'TickLabelInterpreter','latex', ... 目盛りテキストをLaTex記法で数式などを綺麗に書ける
-    'XTickLabel', ... x軸の目盛りテキスト
-        {'0', '60', '120', '180', '240', '300', '360'}...
-    );
-xlabel('位相(°)');
-</pre>
-<style>
-    .prettyprint {
-        max-height: 355px;
-        overflow-x: scroll;
-        overflow-y: scroll;
-        border: 1px solid #ccc;
-    }
+<p>いますぐやることメモ</p>
 
-    .prettyprint ol>li {
-        list-style-type: decimal;
-        padding-inline-start: 10px;
-    }
-</style>
-
-
-<h2 id="種明かし">種明かし</h2>
-
-<p>コード内にも書いてあるのですが、追加された軸の正体は<strong>高さ0のグラフ</strong>です。</p>
-
-<p>あまり綺麗な実装とは言えませんが、他の方法が公式で用意されていないため、仕方ありません。
-(公式ドキュメントのどこかでこの方法を知った気がするけど、見つけられなかった。)</p>
-
-<p>figure内での座標指定など、軸が1つのときは必要ない設定があるため、コードが長くなってしまいます。</p>
-
-<p>X,Y,xlim,ylimくらいはコードを書き換えて、その他の設定は<strong>GUI上での操作をおすすめします</strong>。
-Figureウィンドウの表示タブからプロパティエディターを開くことができます。</p>
+<ul>
+<li>ブログ投稿のリマインダーを設定</li>
+<li>今日・昨日にやったことをポスト</li>
+</ul>
             </div>
         </div>
     </div>
@@ -262,7 +199,20 @@ Figureウィンドウの表示タブからプロパティエディターを開�
 </div>
     <br>
                 
+  
 
+
+
+<div class="card">
+    <div class="card-content">
+        <h1 class="title is-5">Related posts</h1>
+      
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/%E9%A0%91%E5%BC%B5%E3%82%8D%E3%81%86%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E8%A9%B1/">頑張ろうと思った話</a></h1>
+            <time class="has-text-grey-light is-size-7">30 August 2019</time>
+      
+    </div>
+</div>
 
     
 <br>
