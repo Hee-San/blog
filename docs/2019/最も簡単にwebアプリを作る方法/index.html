@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | Diverta 2019 Programming Contest 参加記録 2</title>
+        <title>へーさんのブログ  | 最も簡単にWebアプリを作る方法</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>Diverta 2019 Programming Contest 参加記録 2&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>最も簡単にWebアプリを作る方法&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/%E6%9C%80%E3%82%82%E7%B0%A1%E5%8D%98%E3%81%ABweb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        Diverta 2019 Programming Contest 参加記録 2
+                        最も簡単にWebアプリを作る方法
                         
                     </h1>
                     
@@ -117,133 +117,122 @@ if (!doNotTrack) {
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                <p>一昨日（2019/05/11）、AtCoderで開催された<a href="https://atcoder.jp/contests/diverta2019">diverta 2019 Programming Contest</a>に参加しました。
-C問題の復習記事です。</p>
+                <p>Webアプリを作る、最も簡単な手順はなにか調べ、作ってみた記録です。</p>
+
+<p>前の記事で書いた、自分の生活習慣改善などの記録を取るために、Webアプリを作ろうとしました。</p>
+
+<p>以前には、VueやReactを使ってWebアプリを制作し、GitHubPages上で公開しました。</p>
+
+<p>今回は<strong>ユーザーは自分だけ</strong>、<strong>制作に時間をかけたくない</strong>ということで、他の方法を模索しました。</p>
 
 <hr />
 
-<h2 id="c-ab-substrings">C - AB Substrings</h2>
+<h1 id="候補1-django-heroku">候補1 Django+Heroku</h1>
 
-<blockquote>
-<h5 id="問題文">問題文</h5>
+<p>「<a href="https://qiita.com/okoppe8/items/4cc0f87ea933749f5a49">[Python] プログラム初心者のためのWebアプリ簡単作成法</a>」、およびさらに簡単にした「<a href="https://qiita.com/okoppe8/items/54eb105c9c94c0960f14">[Python] Djangoチュートリアル - 汎用業務Webアプリを最速で作る</a>」を参考にWebアプリを作ってみました。</p>
 
-<p>すぬけ君は$N$個の文字列を持っています。
-$i$番目の文字列は$s_i$です。</p>
+<p>とりあえず記事の手順をそのまま実行していましたが、SQLあたりから違和感を覚えます。</p>
 
-<p>これらの文字列を好きな順序で並べたあと、連結して1つの文字列を作ることを考えます。
-作った文字列に<code>AB</code>という部分文字列が含まれる個数としてありうる値のうち、最大値を求めてください。</p>
+<p>違和感の正体には、アプリ完成後に気が付きました。</p>
 
-<h5 id="制約">制約</h5>
+<p>これは<strong>大人数のユーザー向け</strong>のWebアプリ開発です。</p>
 
-<ul>
-<li>$1 \leq N \leq 10^4$</li>
-<li>$2 \leq |s_i| \leq 10$</li>
-<li>$s_i$は英大文字のみからなる
-<cite><a href="https://atcoder.jp/contests/diverta2019/tasks/diverta2019_c">C - AB Substrings</a> </cite></li>
-</ul>
-</blockquote>
+<p>今の自分のニーズとあっていなかったので、この方法は不採用にしました。</p>
 
-<p>部分文字列が<code>AC</code>ではないのかと、3回確認しました。</p>
+<p>とはいえ、かなり簡単に制作でき、DBSQLを用いた本格的なアプリが作れたので、かなり勉強になりました。
+ニーズの合う方にはおすすめしたいです。</p>
 
-<p>さて、この問題で厄介な存在は、文字列のはじめにある<code>B</code>と、おわりにある<code>A</code>です。
-途中にある<code>AB</code>は、連結後にも必ず残っています。
-途中の<code>AB</code>は$n_0$個あったとします。</p>
+<p>ちなみに、記事内では<strong>SQL言語にSQLiteを、DBクライアントツールにDBeaverを使っています。</strong>
+僕はPostgreSQLの経験があり、pgAdmin4がPCをに入っていたので、<a href="https://docs.djangoproject.com/ja/2.1/ref/settings/#databases">Django公式ドキュメント</a>を参考に、SQLite環境設定を変えました。</p>
 
-<p>各文字列$s_i$を、次の4つに分類します。
-ここで<code>X</code>は、<code>A</code>や<code>B</code>でない任意の文字です。</p>
+<p>結果的に僕は、DBeaverもインストールして両方使ってみたので、いい勉強になりました。</p>
 
-<ol>
-<li><code>B...A</code></li>
-<li><code>B...X</code></li>
-<li><code>X...A</code></li>
-<li><code>X...X</code></li>
-</ol>
+<p><strong>Djangoの勉強には、<a href="https://tutorial.djangogirls.org/ja/">Django Girls</a>がとても良かったです。</strong></p>
 
-<p><strong>パターンの有無で場合分けが必要</strong>です。
-自分はこの場合分け漏れで1WAしてしまいました。
-上の各文字列パターンの個数を、それぞれ$n_1$~$n_4$としましょう。</p>
+<p>この手のGirls系のコミュニティは、解説がとてもわかり易く、サイトも見やすくきれいで、イベントも多く開催している印象があります。
+Girlsイベントには羨ましさを感じることも。
+女性の皆さんはコンパス等で検索してみることを強くおすすめします。</p>
 
-<p></br></p>
+<p><strong>Herokuはやはり、簡単にアプリをデプロイすることができました。</strong>
+以前から何度か利用していたので分かっていたのですが、毎度利用するたび拍子抜けするほど簡単です。
+いつの間にか公開されてるって感じ。</p>
 
-<p>まず、<strong>すべてのパターンが十分にある場合</strong>を考えてみます。
-部分文字列の並べ方はさまざま考えられますが、ここではまず、このような並びから作るとしましょう。</p>
-
-<ul>
-<li><code>X...A</code>, <code>B...A</code>, <code>B...A</code>, &hellip; <code>B...A</code>, <code>B...X</code></li>
-</ul>
-
-<p>ここで<code>B...A</code>というパターンをすべて使い切ることにします。
-<code>X...A</code>と<code>B...X</code>のパターンを、両端に1ずつ消費していることに注意です。
-ここで作られる<code>AB</code>は、$n_1+1$個です。</p>
-
-<p>次はこのような並びを作るとしましょう。</p>
-
-<ul>
-<li><code>X...A</code>, <code>B...X</code>, <code>X...A</code>, <code>B...X</code>, &hellip;</li>
-</ul>
-
-<p><code>X...A</code>と<code>B...X</code>のペアを作ります。
-ここで<code>X...A</code>か<code>B...X</code>どちらか少なかったほうを使い切ります。
-ここで作られる<code>AB</code>は、$min(n_2-1, n_3-1)$個です。</p>
-
-<p>あとは余った文字列を並べるだけです。</p>
-
-<p>よってこの場合で作られる<code>AB</code>は、$n_0 + n_1 + min(n_2, n_3)$個です。</p>
-
-<p></br></p>
-
-<p><strong>場合分けが必要なのは、$n1&gt;0$かつ$n_2=n_3=0$のとき</strong>です。
-次の並びで、両端のどちらかが不在となります。</p>
-
-<ul>
-<li><code>X...A</code>, <code>B...A</code>, <code>B...A</code>, &hellip; <code>B...A</code>, <code>B...X</code></li>
-</ul>
-
-<p>この場合のみ、例外で、作られる<code>AB</code>は、$n_0 + n_1 -1$個です。</p>
-
-<p>以上は<a href="https://img.atcoder.jp/diverta2019/editorial.pdf">公式解説</a>と同じ方法です。</p>
+<p>ただ簡単すぎて、僕は何が起こっているのか分かっていないことが多いです。
+またの機会に改めてじっくり調べてみたい。</p>
 
 <hr />
 
-<p>さて、以上で問題は解けました。
-本番中はここまで整理することはなく、全パターンの有無の組み合わせで場合分けしていました。</p>
+<h1 id="候補2-rasberrypiでサーバーを建てて公開">候補2 RasberryPiでサーバーを建てて公開</h1>
 
-<p>問題を小さく分割することで、1つに取り組む間の考える事柄を減らすことができます。
-初めに場合分けのif文だけ書いておくことで、漏れも防げるでしょう。
-正確かつ速いコーディングを求められる場合は、それでよかったと思います。</p>
+<p>Pythonは書きやすいけれど、自分はHTML/CSS/jsが少しはかけるのだから、それで書くのがやはり一番だろう。そういうわけで、問題はどうやって公開するか、サーバーをどうするかということになりました。</p>
 
-<p>しかし、今回このように改めて考察することで、新しい気付きもありました。
-<strong>予想に反し、場合分けは2つで良かった</strong>のです。この点について、もう少し考察してみます。</p>
+<p>最近、自宅内の洗濯物や洋服の管理をどうにかしたいと考えたときに、ラズパイ＋AmazonDashボタン+Webアプリという構成を考えたことがあった(現在保留中)ので、これを使おうと考えました。</p>
 
-<p>さて、先の解法では、部分文字列を4パターンに分類していました。
-しかし考察を行う中で、その場合分けも不要なことに気が付きました。
-最終的な数式や場合分けの仕方は同じですが、少し違った視点から考えることができます。</p>
+<p>ラズパイをネット接続し、AmazonDashボタン検知、Slack通知システムを作っていたので、Web公開も簡単と考えました。</p>
 
-<p>注目するべきは、「部分文字列の終端にある<code>A</code>」の数と、「部分文字列の始端にある<code>B</code>」の数です。
-それぞれ$m_A, m_B$としましょう。</p>
+<p>しかし実際には、前のプロジェクトと違い、自宅外のインターネットからも接続できるようにしないといけず、四苦八苦でした。</p>
 
-<p>これらを可能な限り使って<code>AB</code>をつくりたいと言うのがこの問題でした。
-単純に考えて、その数は$min(m_A,m_B)$です。</p>
+<p>人生初のドメイン取得やDinamicDNSの設定などをして、ネットワーク系スキルを少し上げれました。</p>
 
-<p>ただし唯一、そうは作れない場合が存在します。
-並べた文字列が、<code>B...A</code>, <code>B...A</code>, &hellip; <code>B...A</code>という形になる場合。
-両端に、<code>AB</code>に成れない<code>A</code>と<code>B</code>が残ってしまう場合です。
-この場合は<code>AB</code>が1減ってしまいます。</p>
+<p>ドメイン取得は<a href="https://domains.google.com">Google Domains</a>を利用したのですが、その際にもっと楽な方法に気がついたので、この案も採用されませんでした。</p>
 
-<p>実際のコードとしての実装は、先の解法と同じです。</p>
+<p>お世話になったサイトは以下の5つです。
+たまたま全部Qiitaです。</p>
+
+<ul>
+<li><p><strong>「<a href="https://qiita.com/murs13/items/81757bf8bc74b6b76cdf">macしかない状況でRaspberry Piに接続してみた</a>」</strong>
+以前はモニター・キーボード・マウスを有線でつないで作業したので、今回はそれ無しでやってみました。</p></li>
+
+<li><p><strong>「<a href="https://qiita.com/mascii/items/0d1a280ac58ed8f6f999">Raspberry Piの無線LANをmicroSDで設定する</a>」</strong>
+これも、モニター・キーボード無しで作業するための方法です。
+空のsshファイルを作るところで、間違えてフォルダを作っていたため、30分くらい格闘していました。</p></li>
+
+<li><p><strong>「<a href="https://qiita.com/westvirginia/items/0d3b7d7dd19116cc14bf">【番外編】レッツラズパイ！〜&rdquo;ディスプレイなしで&rdquo;RaspberryPiにOSをインストールしよう編〜</a>」</strong>
+上の2つの記事の内容をともに含んでいます。
+この記事のシリーズは面白そうなので、全て試してみたいです。</p></li>
+
+<li><p><strong>「<a href="https://qiita.com/jun6231jp/items/5596ef0c912c7f57ef0a">Raspberry PiでWebサーバを構築し自作アプリを使う</a>」</strong>
+メインで参考にした記事です。
+この記事の流れをもとに、各手順をそれぞれ調べながら勧めました。</p></li>
+
+<li><p><strong>「<a href="https://qiita.com/gorohash/items/8287738ffe47ab52a36f">Google Domains の DDNS を Raspberry Pi で利用する</a>」</strong>
+これを参考に、ドメイン取得・DDSN設定を行いました。</p></li>
+</ul>
 
 <hr />
 
-<p>このように、場合わけではなく、<strong>例外処理</strong>のような見方もできることに気が付きました。
-こちらの解法のほうが直感的であるような気もします。
-問題文を読んだときの気持ちをそのまま表現したような考え方です。</p>
+<h1 id="候補3-google-apps-script">候補3 Google Apps Script</h1>
 
-<p>しかしまだ、どうも言葉として表現しきれていない気もします。
-しばらくあとに読み返したときには、先の考察と違いがないように見えるかもしれません。
-文章として書き残す能力も伸ばしていきたいものです。</p>
+<p>web公開までできたのかと、驚きました。
+一番参考になったのは、このサイトです。</p>
 
-<p>今回の気付きが何かに直接生かされることは、ないかもしれません。
-しかし、今回の問題考察もまた、自分の成長につながったような実感が得られました。</p>
+<ul>
+<li><strong>「<a href="https://tonari-it.com/google-apps-script-manual/">いつも隣にITのお仕事 - 【保存版】初心者向け実務で使えるGoogle Apps Script完全マニュアル</a>」</strong></li>
+</ul>
+
+<p>ここに、GASを用いたWebアプリ開発でできること・その手順がたくさん書いてあります。</p>
+
+<p>僕はこの記事を見つけるまで、静的サイト+αくらいしかできないんだと考えていました。
+しかし、GASの実力はそんなもんじゃない！
+僕が作りたいものはGASでほとんどできそうです。</p>
+
+<p>この日は、スプレッドシートのグラフ表示・Bootstrap対応くらいをしました。
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">突貫でwebアプリ？を作った<br>データは適当 <a href="https://t.co/gN3AxLvwB4">pic.twitter.com/gN3AxLvwB4</a></p>&mdash; へーさん (@hee<em>san</em>) <a href="https://twitter.com/hee_san_/status/1167828097384603649?ref_src=twsrc%5Etfw">August 31, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>これがもう、10行くらい書いて3回くらいボタン押せば公開できちゃうんです。</p>
+
+<p>しかも公開範囲を選べるので、Googleアカウント認証で自分のみが見れるようにするのもボタン一つでした。</p>
+
+<p>僕のニーズにぴったりだったので、今後はこれで開発を進めたいと思います。
+無料なのもとてもいいです。</p>
+
+<hr />
+
+<p>メモ</p>
+
+<p>TODO : h1タイトルなど、デカすぎ？</p>
+
+<p>時間かかりそうな記事は、寝る前に書き始めない。</p>
             </div>
         </div>
     </div>
@@ -309,26 +298,14 @@ $i$番目の文字列は$s_i$です。</p>
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://hee-san.github.io/blog/2019/atcoder_beginner_contest_129_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AtCoder Beginner Contest 129 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">9 June 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/2019%E3%81%AE%E3%81%93%E3%82%8A4%E3%83%B6%E6%9C%88%E3%81%AE%E7%9B%AE%E6%A8%99/">2019残り4ヶ月の目標</a></h1>
+            <time class="has-text-grey-light is-size-7">3 September 2019</time>
       
-            <h1><a href="https://hee-san.github.io/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">AGC034 C問題</a></h1>
-            <time class="has-text-grey-light is-size-7">5 June 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/%E8%A8%98%E9%8C%B2%E3%81%AB%E6%AE%8B%E3%82%8B%E5%BD%A2%E3%81%A7%E3%82%A2%E3%82%A6%E3%83%88%E3%83%97%E3%83%83%E3%83%88%E3%81%97%E3%82%88%E3%81%86/">記録に残る形でアウトプットしよう</a></h1>
+            <time class="has-text-grey-light is-size-7">3 September 2019</time>
       
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">Diverta 2019 Programming Contest 参加記録 3</a></h1>
-            <time class="has-text-grey-light is-size-7">15 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B21/">Diverta 2019 Programming Contest 参加記録 1</a></h1>
-            <time class="has-text-grey-light is-size-7">12 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_c%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 C問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">9 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_b%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 B問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">6 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 A問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">5 May 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/%E9%A0%91%E5%BC%B5%E3%82%8D%E3%81%86%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E8%A9%B1/">頑張ろうと思った話</a></h1>
+            <time class="has-text-grey-light is-size-7">30 August 2019</time>
       
     </div>
 </div>

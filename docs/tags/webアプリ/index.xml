@@ -1,0 +1,23 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>webアプリ on へーさんのブログ</title>
+    <link>https://hee-san.github.io/blog/tags/web%E3%82%A2%E3%83%97%E3%83%AA/</link>
+    <description>Recent content in webアプリ on へーさんのブログ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 03 Sep 2019 01:41:46 +0900</lastBuildDate>
+    
+        <atom:link href="https://hee-san.github.io/blog/tags/web%E3%82%A2%E3%83%97%E3%83%AA/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>最も簡単にWebアプリを作る方法</title>
+      <link>https://hee-san.github.io/blog/2019/%E6%9C%80%E3%82%82%E7%B0%A1%E5%8D%98%E3%81%ABweb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Tue, 03 Sep 2019 01:41:46 +0900</pubDate>
+      
+      <guid>https://hee-san.github.io/blog/2019/%E6%9C%80%E3%82%82%E7%B0%A1%E5%8D%98%E3%81%ABweb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95/</guid>
+      <description>&lt;p&gt;Webアプリを作る、最も簡単な手順はなにか調べ、作ってみた記録です。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
