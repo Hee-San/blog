@@ -11,3 +11,5 @@ hugo
 
 
 <!--more-->
+
+ssh-add ~/.ssh/id_rsa
