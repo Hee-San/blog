@@ -119,7 +119,7 @@ if (!doNotTrack) {
             <div class="content">
                 <p>先日（2019/09/01）、AtCoderで開催された<a href="https://atcoder.jp/contests/abc139">AtCoder Beginner Contest 139</a>に参加しました。</p>
 
-<p><img src="ratingGraph.png" alt="レートグラフ" /></p>
+<p><img src="https://hee-san.github.io/blog/post/2019/09/abc139/ratingGraph.png" alt="レートグラフ" /></p>
 
 <p>最近かなり冷えてきてしまいましたが、色々と忙しいので仕方ないかな&hellip;
 あまり集中できる環境で参加できていません。</p>
@@ -226,7 +226,7 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <p>「<strong>右隣の</strong>」と太字になっているのはそういうことだと思います。</p>
 
 <p>これも尺取法に入るのかな？
-O(N)で解けます。</p>
+$O(N)$で解けます。</p>
 
 <hr />
 
@@ -248,9 +248,19 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 
 <ul>
 <li>$N$ は $1 \leq N \leq 10^9$ を満たす整数である。
-&gt; <cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_d">ABC139 D - ModSum</a></cite></li>
+<cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_d">ABC139 D - ModSum</a></cite></li>
 </ul>
 </blockquote>
+
+<p>最適解が自明に出せる問題でした。
+この手の問題は、サンプルケースを見て予想が付く場合があります。</p>
+
+<p>説明付きのサンプルケースが1つしかなく、
+そのケースが極端に小さく、
+２つ目以降のケースが手計算できないほど大きい場合、
+出題者が隠したい規則性があると考えられます。</p>
+
+<p>メタな解き方ですが、まあまあ有効な戦略だと思います。</p>
 
 <hr />
 
@@ -279,9 +289,33 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$1 \leq A_{i, j} \leq N$</li>
 <li>$A_{i, j} \neq i$</li>
 <li>$A_{i, 1}, A_{i, 2}, \ldots, A_{i, N-1}$ はすべて異なる。
-&gt; <cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_e">ABC139 E - League</a></cite></li>
+<cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_e">ABC139 E - League</a></cite></li>
 </ul>
 </blockquote>
+
+<p>コンテストではACできなかった問題です。</p>
+
+<p>解説pdfでは、グラフを用いて試合の前後関係を記憶します。
+その深さが最小日数となります。
+$O(N^2)$です。</p>
+
+<p>コンテスト中、自分は貪欲法で解きました。
+1日目から順に、すべての選手の希望を見て、可能な試合を行います。
+各日程で$N$人の走査を行い、最大$N(N-1)/2$日なので、$O(N^3)$でした。
+$10^9$までは間に合うと、何故か勘違いしていたのでこの手法を選びましたが、提出したところ1TLEでした。</p>
+
+<p>実際は$10^8$でもほぼ間に合いません。
+その勘違いに気づいたため、コンテスト中のACを諦めました。</p>
+
+<p>しかし、少し粘れば$O(N^2)$に下げることができました。</p>
+
+<p>このように貪欲に、可能な試合はできるだけ早く試合するとき、ある試合のうちどちらか一方の選手は必ず前日にも試合しているはずです。
+これは背理法で示せます。</p>
+
+<p>つまり、毎日全選手走査する必要はなく、前日に試合した選手の試合み確認すればいいことがわかります。
+これは最大でも、試合数の倍の走査で済みますので、$O(N^2)$で収まります。</p>
+
+<p>解説pdfとは別解ですが、ACできました。<a href="https://atcoder.jp/contests/abc139/submissions/7302164">提出</a></p>
 
 <hr />
 
@@ -312,11 +346,25 @@ Time Limit: 2 sec / Memory Limit: 1024 MB</p>
 <li>$-1 \ 000 \ 000 \leq x_i \leq 1 \ 000 \ 000$</li>
 <li>$-1 \ 000 \ 000 \leq y_i \leq 1 \ 000 \ 000$</li>
 <li>入力はすべて整数
-&gt; <cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_f">ABC139 F - Engines</a></cite></li>
+<cite> <a href="https://atcoder.jp/contests/abc139/tasks/abc139_f">ABC139 F - Engines</a></cite></li>
 </ul>
 </blockquote>
 
+<p>コンテスト終了後、解説pdfを参考にACしました。<a href="https://atcoder.jp/contests/abc139/submissions/7322415">提出</a></p>
+
+<p>偏角ソートを使う、というヒントで解けました。
+atan2がstd直下にあるのは知りませんでした。</p>
+
+<p>提出では、偏角ソートののち全探索を行い$O(N^2)$となっています。
+pdfによると、尺取法を用いて$O(NlogN)$で解けるようで挑戦しましたが、境界判定が難しく断念しました。</p>
+
+<p>今でもわからないままなので、時間があるときにサンプルコードを読んでみたいと思います。</p>
+
 <hr />
+
+<p>今回のコンテストも遅刻してしまいました。
+最近タスクが密に詰まっていて、こういうことが起こりやすいです。
+次回は今週末の日曜日。遅刻厳禁。</p>
             </div>
         </div>
     </div>
