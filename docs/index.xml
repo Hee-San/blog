@@ -5,10 +5,19 @@
     <description>Recent content on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 03 Sep 2019 01:41:46 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 03 Sep 2019 19:13:49 +0900</lastBuildDate>
     
         <atom:link href="https://hee-san.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AtCoder Beginner Contest 139 参加記録</title>
+      <link>https://hee-san.github.io/blog/2019/atcoder_beginner_contest_139_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</link>
+      <pubDate>Tue, 03 Sep 2019 19:13:49 +0900</pubDate>
+      
+      <guid>https://hee-san.github.io/blog/2019/atcoder_beginner_contest_139_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/</guid>
+      <description>&lt;p&gt;先日（2019/09/01）、AtCoderで開催された&lt;a href=&#34;https://atcoder.jp/contests/abc139&#34;&gt;AtCoder Beginner Contest 139&lt;/a&gt;に参加しました。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>最も簡単にWebアプリを作る方法</title>
