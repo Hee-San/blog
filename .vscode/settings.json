@@ -1,3 +1,8 @@
 {
-    "python.pythonPath": "/Users/takashi/anaconda3/bin/python"
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": true
+  },
+  "markdown.preview.breaks": true,
+  "python.pythonPath": "/Users/takashi/anaconda3/bin/python"
 }

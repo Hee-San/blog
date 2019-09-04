@@ -17,9 +17,9 @@
   // }
 
   "more": {
-    "scope": "more",
+    "scope": "",
     "prefix": "more",
-    "body": "<!--more-->",
+    "body": ["", "<!--more-->", ""],
     "description": "more line"
   }
 }
