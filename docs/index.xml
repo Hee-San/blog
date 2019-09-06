@@ -5,10 +5,31 @@
     <description>Recent content on へーさんのブログ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Sep 2019 00:06:39 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 06 Sep 2019 08:29:53 +0900</lastBuildDate>
     
         <atom:link href="https://hee-san.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Android10感想（戻るボタン廃止）</title>
+      <link>https://hee-san.github.io/blog/2019/2019-09-05%E3%81%AE%E6%97%A5%E8%A8%98/</link>
+      <pubDate>Fri, 06 Sep 2019 08:29:53 +0900</pubDate>
+      
+      <guid>https://hee-san.github.io/blog/2019/2019-09-05%E3%81%AE%E6%97%A5%E8%A8%98/</guid>
+      <description>&lt;!-- Android 10、 c++ priority_que、 映画ライオンキング、 ガートナーのハイプ・サイクルについて。
+
+
+
+USB4が正式に発表されたので色々調べてみたけれど、3月の発表のそのままみたいです。
+
+# Android 10 使用感 --&gt;
+
+&lt;p&gt;自分の使ってるPixel3で、Android 10公開初日にアップデートしてみました。
+概ねいい感じです。&lt;/p&gt;
+
+&lt;p&gt;プラスもマイナスも含めて、考えたことがいくつかあったので書き残します。
+まずは戻るボタンについてです。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>2019年9月4日の日記</title>

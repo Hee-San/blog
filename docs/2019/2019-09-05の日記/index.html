@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>へーさんのブログ  | AGC033 A問題 参加記録</title>
+        <title>へーさんのブログ  | Android10感想（戻るボタン廃止）</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         
@@ -54,9 +54,9 @@ if (!doNotTrack) {
 <meta name="twitter:creator" content="">
 </meta>
 <meta name="twitter:title"
-    content="<title>AGC033 A問題 参加記録&nbsp;-&nbsp;へーさんのブログ</title>">
+    content="<title>Android10感想（戻るボタン廃止）&nbsp;-&nbsp;へーさんのブログ</title>">
 </meta>
-<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/agc033_a%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">
+<meta name="twitter:url" content="https://hee-san.github.io/blog/2019/2019-09-05%E3%81%AE%E6%97%A5%E8%A8%98/">
 </meta>
 <meta name="twitter:description"
     content="">
@@ -100,7 +100,7 @@ if (!doNotTrack) {
                     <br>
                     <h1 class="title is-size-1">
                         
-                        AGC033 A問題 参加記録
+                        Android10感想（戻るボタン廃止）
                         
                     </h1>
                     
@@ -117,160 +117,74 @@ if (!doNotTrack) {
     <div class="column is-9">
         <div class="tile is-child box">
             <div class="content">
-                <p>昨日（2019/05/04）、AtCoderで開催された<a href="https://atcoder.jp/contests/agc033">AtCoder Grand Contest 033</a>に参加しました。
-A問題の復習記事です。</p>
+                <!-- Android 10、 c++ priority_que、 映画ライオンキング、 ガートナーのハイプ・サイクルについて。
 
-<pre><code>2019/5/4 AtCoder Grand Contest 033
-Rank: 565(rated)
-Perf: 1705
-Rating: 1275(+61, highest!)
-</code></pre>
 
-<p><img src="/blog/img/AtCoder20190504.png" alt="レート" /></p>
 
-<p>結果はA~Fの6問中、A(300), B(600)のみACでした。</p>
+USB4が正式に発表されたので色々調べてみたけれど、3月の発表のそのままみたいです。
 
-<p>問題量が多いため、各問題ごと別に記事を書こうと思います。</p>
+# Android 10 使用感 -->
 
-<ul>
-<li><a href="/blog/2019/agc033_b問題_参加記録/">AGC033 B問題</a></li>
-<li><a href="/blog/2019/agc033_c問題_参加記録/">AGC033 C問題</a></li>
-<li>D問題以降、準備中</li>
-</ul>
+<p>自分の使ってるPixel3で、Android 10公開初日にアップデートしてみました。
+概ねいい感じです。</p>
+
+<p>プラスもマイナスも含めて、考えたことがいくつかあったので書き残します。
+まずは戻るボタンについてです。</p>
+
+<h1 id="戻るボタン">戻るボタン</h1>
+
+<p>液晶下部にほとんど常に表示されていた戻るボタンが、ついになくなりました。</p>
+
+<p>物理ボタンが廃止された際、Android開発陣はこの戻るボタンにつようこだわりを持っているように感じました。</p>
+
+<p>iOSユーザーやデザイナーからは、戻るボタンの常駐や、その挙動はナンセンスだと言われてた記憶があります。
+それに対して確か、ホームボタンより5割増しで戻るボタンが使われているから、みたいなことを言っていた気がします。
+現在ではAndroidのUX設計にピッタリあったUIだと感じられていました。</p>
+
+<p>今回「戻る」を、ボタンでなくスワイプにしたということで、今後の体験がどう変わるかが楽しみです。</p>
+
+<h2 id="ジェスチャーの競合">ジェスチャーの競合</h2>
+
+<p>アップデート前までは、左エッジから右にスワイプのジェスチャーのみだと思っていました。
+それだと多くのアプリで、サイドメニューを開くようなジェスチャーとかぶってしまいます。
+個人的には、左上のハンバーガーアイコンを押すのが苦手で、ジェスチャーをよく使っていました。
+しかし周りの友人を見ていると、ハンバーガーまで指を伸ばしている人が多いと思いますし、開発者もそのような統計を持っているんだりうなと思います。
+ですので、もしかするとアプリ側のジェスチャーが廃止されるんじゃないかという心配がありました。</p>
+
+<p>アップデート後に実際触ってみると、右エッジからのスワイプにも反応しました。
+また、かなりエッジに寄ったところからでないと戻るジェスチャーになりません。</p>
+
+<p>一応これで競合はかなり減ると思います。
+指の届きやすさからも、右からスワイプアクションを使っています。</p>
+
+<h2 id="選択肢はジェスチャーのみ">選択肢はジェスチャーのみ</h2>
+
+<p>しかし、改めて考えてみると、多くのユーザーにとっては少し使いづらいんじゃないかという気もします。</p>
+
+<p>そもそも、今までも多くのジェスチャー操作が可能でしたが、それを使いこなしてるユーザーは何割くらいいたんでしょうか。</p>
+
+<p>以前からあった、ホームボタンからのアプリ切り替えジェスチャーにも変更が加わり、ホーム長押しではアプリ切り替えできなくなっています。
+親指でのスワイプジェスチャーが必要で、しかも1方向へのスワイプではなく、途中で曲げたりすることも求められます。
+僕の持ち方だと、親指の腹ではなく、横、爪の端やささくれができるところらへんで操作しなければならず、かなり難しいです。
+そのため、持ち方が少しづつ変わってきています。</p>
+
+<p>このように、ジェスチャーはかなり走査が難しいと感じるユーザーが一定数出てくるはずです。</p>
+
+<p>画面に、ボタンのような標識が無いことも混乱を招くでしょう。</p>
+
+<p>戻るのジェスチャーの向きは、時間の流れが右から左か、その逆か、そういう感覚とのマッチもUXに関わってくると思います。
+これは言語の横書き時に、文を書く方向によって決まると言われています。
+つまり、言語圏によって変わるわけです。
+今後はそういったアクセシビリティの議論に、新しくジェスチャーも加わってくるでしょう。
+そう考えると、混乱も更に大きくなる気がしてきました。</p>
 
 <hr />
 
-<blockquote>
-<h3 id="a-darker-and-darker">A - Darker and Darker</h3>
+<p>設定には、戻るボタンを復活させるオプションがあります。</p>
 
-<h5 id="問題文">問題文</h5>
+<p>自分は今の所、もう少し頑張って戻るジェスチャーに慣れてみようと思いますが、このオプションを選ぶ可能性も十分にあると思います。</p>
 
-<p>縦$H$行、横$W$列の白黒に塗られたマス目が与えられます。</p>
-
-<p>マス目の状態は$A_{11}$から$A_{HW}$の$HW$個の文字で表されており、  <br />
-上から$i$行目、左から$j$列目にあるマスが黒色のとき、$A_{ij}$は<code>#</code>、  <br />
-上から$i$行目、左から$j$列目にあるマスが白色のとき、$A_{ij}$は<code>.</code>となっています。  </p>
-
-<p>すべてのマスが黒色になるまで、以下の操作を繰り返し行います。</p>
-
-<ul>
-<li>辺を共有して隣接するマスの中に、黒色のマスが一つ以上存在するような白色のマスすべてが黒色になる。</li>
-</ul>
-
-<p>何回の操作を行うことになるか求めてください。</p>
-
-<p>ただし、最初に与えられるマス目には少なくとも1つ黒色のマスが存在します。</p>
-
-<h5 id="制約">制約</h5>
-
-<ul>
-<li>$1 ≦ H,W ≦ 1000$</li>
-<li>$A_{ij}$は<code>#</code>または<code>.</code>。</li>
-<li>与えられるマス目には少なくとも1つ黒色のマスが存在する。</li>
-</ul>
-
-<p><cite><a href="https://atcoder.jp/contests/agc033/tasks/agc033_a">A - Darker and Darker</a></cite></p>
-</blockquote>
-
-<p>この問題はシミュレーションが簡単そうですが、気をつけないと実行時間制限に引っかかりそうです。</p>
-
-<p>毎操作ごとにすべてのマスをチェックし、色を更新するというのが、シンプルな再現方法です。</p>
-
-<p>この場合、最悪のパターンは、$H=W=1000$、$A_{11}$のみが黒い場合です。
-このとき処理のループ数は、$H*W*2000 \simeq 10^9$となり、1秒間では処理しきれません。
-（たいてい、ループ数$10^7$までなら1秒で処理可能と言われています。）</p>
-
-<p>少し考えると、毎度の操作でチェックするマスを減らせることがわかります。
-具体的には、<strong>前回の操作で新しく黒になったマスの周囲のみ</strong>チェックすればよいです。</p>
-
-<p>こうすることで、すべてのマスに対し、その周囲のチェックが1度ずつ走ることになります。
-ですのでチェックの数は高々$4HW$、つまり$O(HW)$に収まります。
-これは1秒以内で十分処理できる計算量です。</p>
-
-<pre class="prettyprint lang-cpp linenums">
-#include &ltalgorithm>
-#include &ltcmath>
-#include &ltiostream>
-#include &ltqueue>
-#include &ltstring>
-#include &lttuple>
-#include &ltvector>
-
-using namespace std;
-typedef long long int ll;
-typedef vector&ltint> vi;
-typedef vector&ltvi> vvi;
-typedef pair&ltint, int> v2;
-
-#define INF (1e9)
-
-int H, W;
-
-int main() {
-    cin >> H >> W;
-
-    vvi A(H, vi(W, INF));
-    string s;
-    queue<v2> q;
-
-    for (int i = 0; i < H; i++) {
-        cin >> s;
-        for (int j = 0; j < W; j++) {
-            if (s[j] == '#') {
-                A[i][j] = 0;
-                q.push(v2(i, j));
-            }
-        }
-    }
-
-    while (!q.empty()) {
-        v2 p = q.front();
-        q.pop();
-        int xx = p.second;
-        int yy = p.first;
-        if (xx > 0 && A[yy][xx - 1] == INF) {  // L
-            A[yy][xx - 1] = A[yy][xx] + 1;
-            q.push(v2(yy, xx - 1));
-        }
-        if (xx < W - 1 && A[yy][xx + 1] == INF) {  // R
-            A[yy][xx + 1] = A[yy][xx] + 1;
-            q.push(v2(yy, xx + 1));
-        }
-        if (yy > 0 && A[yy - 1][xx] == INF) {  // U
-            A[yy - 1][xx] = A[yy][xx] + 1;
-            q.push(v2(yy - 1, xx));
-        }
-        if (yy < H - 1 && A[yy + 1][xx] == INF) {  // D
-            A[yy + 1][xx] = A[yy][xx] + 1;
-            q.push(v2(yy + 1, xx));
-        }
-    }
-
-    int ans = 0;
-    for (int i = 0; i < H; i++) {
-        for (int j = 0; j < W; j++) {
-            ans = max(ans, A[i][j]);
-        }
-    }
-
-    cout << ans << endl;
-    return 0;
-}
-
-</pre>
-<style>
-    .prettyprint {
-        max-height: 355px;
-        overflow-x: scroll;
-        overflow-y: scroll;
-        border: 1px solid #ccc;
-    }
-
-    .prettyprint ol>li {
-        list-style-type: decimal;
-        padding-inline-start: 10px;
-    }
-</style>
+<p>次は、ダークモードについて書くたいけど、エネルギーもつかな。。</p>
             </div>
         </div>
     </div>
@@ -336,26 +250,20 @@ int main() {
         <h1 class="title is-5">Related posts</h1>
       
       
-            <h1><a href="https://hee-san.github.io/blog/2019/atcoder_beginner_contest_139_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AtCoder Beginner Contest 139 参加記録</a></h1>
+            <h1><a href="https://hee-san.github.io/blog/2019/2019%E5%B9%B49%E6%9C%884%E6%97%A5%E3%81%AE%E6%97%A5%E8%A8%98/">2019年9月4日の日記</a></h1>
+            <time class="has-text-grey-light is-size-7">5 September 2019</time>
+      
+            <h1><a href="https://hee-san.github.io/blog/2019/%E6%9C%80%E3%82%82%E7%B0%A1%E5%8D%98%E3%81%ABweb%E3%82%A2%E3%83%97%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B%E6%96%B9%E6%B3%95/">最も簡単にWebアプリを作る方法</a></h1>
             <time class="has-text-grey-light is-size-7">3 September 2019</time>
       
-            <h1><a href="https://hee-san.github.io/blog/2019/atcoder_beginner_contest_129_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AtCoder Beginner Contest 129 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">9 June 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/2019%E3%81%AE%E3%81%93%E3%82%8A4%E3%83%B6%E6%9C%88%E3%81%AE%E7%9B%AE%E6%A8%99/">2019残り4ヶ月の目標</a></h1>
+            <time class="has-text-grey-light is-size-7">3 September 2019</time>
       
-            <h1><a href="https://hee-san.github.io/blog/2019/agc034_c%E5%95%8F%E9%A1%8C/">AGC034 C問題</a></h1>
-            <time class="has-text-grey-light is-size-7">5 June 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/%E8%A8%98%E9%8C%B2%E3%81%AB%E6%AE%8B%E3%82%8B%E5%BD%A2%E3%81%A7%E3%82%A2%E3%82%A6%E3%83%88%E3%83%97%E3%83%83%E3%83%88%E3%81%97%E3%82%88%E3%81%86/">記録に残る形でアウトプットしよう</a></h1>
+            <time class="has-text-grey-light is-size-7">3 September 2019</time>
       
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B23/">Diverta 2019 Programming Contest 参加記録 3</a></h1>
-            <time class="has-text-grey-light is-size-7">15 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B22/">Diverta 2019 Programming Contest 参加記録 2</a></h1>
-            <time class="has-text-grey-light is-size-7">13 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/diverta_2019_programming_contest_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B21/">Diverta 2019 Programming Contest 参加記録 1</a></h1>
-            <time class="has-text-grey-light is-size-7">12 May 2019</time>
-      
-            <h1><a href="https://hee-san.github.io/blog/2019/agc033_c%E5%95%8F%E9%A1%8C_%E5%8F%82%E5%8A%A0%E8%A8%98%E9%8C%B2/">AGC033 C問題 参加記録</a></h1>
-            <time class="has-text-grey-light is-size-7">9 May 2019</time>
+            <h1><a href="https://hee-san.github.io/blog/2019/%E9%A0%91%E5%BC%B5%E3%82%8D%E3%81%86%E3%81%A8%E6%80%9D%E3%81%A3%E3%81%9F%E8%A9%B1/">頑張ろうと思った話</a></h1>
+            <time class="has-text-grey-light is-size-7">30 August 2019</time>
       
     </div>
 </div>
